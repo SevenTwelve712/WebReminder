@@ -15,35 +15,7 @@
 <h1>{{ instruction.name }}</h1>
 {{ chapter_list(instruction.chapter_list) }}
 <div class="content">
-  {% for elem in instruction.content %}
-    {% if elem.type == table %}
-    {{ table(elem.content) }}
-    {% elif elem.type == 'open_p' %}
-    <p>
-    {% elif elem.type == 'close_p' %}
-    </p>
-    {% elif elem.type == 'plain_text' %}
-    {{ elem.content }}
-    {% elif elem.type == 'open_ol' %}
-    <ol>
-    {% elif elem.type == 'end_ol' %}
-    </ol>
-    {% elif elem.type == 'a' %}
-    <a href="{{ elem.content[1] }}">{{ elem.content[0] }}</a>
-    {% elif elem.type == 'open_ul' %}
-    <ul>
-    {% elif elem.type == 'end_ul' %}
-    </ul>
-    {% elif elem.type == 'li' %}
-    <li>{{ elem.content }}</li>
-    {% elif elem.type == 'code' %}
-    <div class="code_block">
-        <pre>{{ elem.content }}</pre>
-    </div>
-    {% elif 'h' in elem.type %}
-    <{{ elem.type }} id="{{ elem.content[1] }}">{{ elem.content[0] }}</{{ elem.type }}>
-    {% endif %}
-  {% endfor %}
+  {% include instruction.content %}
 </div>
 </body>
 </html>
