@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'for_captions';
+    src: url('../fonts/for_captions.ttf') format('truetype');
+}
+@font-face{
+	font-family: 'for_th&td';
+    src: url('../fonts/for_th&td.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'for_subtitles';
+    src: url('../fonts/for_subtitles.ttf') format('truetype');
+}
+caption{
+	margin-top: 40px;
+	font-family: "for_captions";
+	font-size: 40px;
+}
+table {
+	text-align: center;
+	border-spacing: 0;
+	width: 90%;
+	margin:auto 
+}
+th {
+	background: #FF2525;
+	color: white;
+	border-width: 3px 3px 3px 0;
+}
+td {
+	background: #F8E391;
+	border-width: 0 3px 3px 0;
+}
+th, td{
+	padding: 10px 20px;
+	border-style: solid;
+	border-color: #FA8072;
+	font-family: "for_th&td";
+	font-size: 25px;
+}
+/*округление*/
+th:first-child {border-top-left-radius: 10px; border-width: 3px 3px 3px 3px}
+th:last-child {border-top-right-radius: 10px;}
+/*tr:last-child td:first-child {border-radius: 0 0 0 10px;}
+tr:last-child td:last-child {border-radius: 0 0 10px 0;}*/
+tr td:first-child {border-left: 3px solid #FA8072;}
+ul{
+	text-align: left;
+}
+hr {
+    width: 80%;
+    height: 4px;
+    background: #FF7F50;
+    border: 0;
+    margin: 1% 10% 1% 10%;
+}
+tbody{
+	bgcolor: #FF4500;
+}
+.subtitle{
+	border-radius: 0 0 0 0;
+	font-family: for_subtitles;
+	font-size: 40px;
+	background: #FFBF00;
+	color: white;
+}

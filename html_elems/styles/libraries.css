@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'for_captions';
+    src: url('../fonts/for_captions.ttf') format('truetype');
+}
+@font-face{
+	font-family: 'for_th&td';
+    src: url('../fonts/for_th&td.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'for_subtitles';
+    src: url('../fonts/for_subtitles.ttf') format('truetype');
+}
+body{
+	margin: 0px;
+}
+caption{
+	font-family: "for_captions";
+	font-size: 40px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+/* Стиль для таблицы класса ContentTable */
+.content_table {
+	text-align: center;
+	border-spacing: 0;
+	margin: auto;
+	width: 90%;
+	margin-bottom: 40px;
+}
+.content_table thead td {
+	background: #008080;
+	color: white;
+	border-width: 3px 3px 3px 0;
+}
+.content_table td {
+	background: #AFEEEE;
+	border-width: 0 3px 3px 0;
+}
+.content_table th, td{
+	padding: 10px 20px;
+	border-style: solid;
+	border-color: #87CEFA;
+	font-family: "for_th&td";
+	font-size: 25px;
+}
+
+td:first-child {border-left: 3px solid #87CEFA}
+/*округление content_table*/
+.content_table thead tr td:first-child {border-top-left-radius: 10px}
+.content_table thead tr td:last-child {border-top-right-radius: 10px;}
+.content_table tfoot tr td:first-child {border-bottom-left-radius: 10px}
+.content_table tfoot tr td:last-child {border-bottom-right-radius: 10px}
+
+
+ul{
+	text-align: left;
+}
+hr {
+    width: 80%;
+    height: 4px;
+    background: #20B2AA;
+    border: 0;
+    margin: 1% 10% 1% 10%;
+}
+
+.subtitle{
+	border-radius: 0 0 0 0;
+	font-family: for_subtitles;
+	font-size: 40px;
+	background: #B0C4DE;
+	color: white;
+}

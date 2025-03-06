@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% from 'content_table.html' import table %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    {% for style in library.styles %}
+    <link rel="stylesheet" type="text/css" href="{{ style }}">
+    {% endfor %}
+    <title>{{ library.name }}</title>
+</head>
+<body>
+{% include 'nav_bar.html' %}
+{% if library.extra %}
+{{ table(library.extra) }}
+{% endif %}
+{{ table(library.content) }}
+</body>
+</html>

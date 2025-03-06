@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'for_code';
+    src: url('../fonts/for_code.ttf') format('truetype');
+}
+.code_block{
+	line-height: 2;
+	font-family: 'for_code';
+	font-size: 20px;
+	background: #C0D1E2;
+	padding: 10px;
+	padding-left: 30px;
+	border-radius: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.whitespaces {
+	white-space: pre-wrap;
+}
+.language_constructions {
+	color: #6893F3;
+}
+/*.decorator {
+	color: #8DC6EF;*/
+}
+.comment {
+	color: #6272A4;
+}
+.method {
+	color: #2964BC;
+}
+.arguments{
+	color: #229DA4;
+}
+.built-in {
+	color: #489780;
+}
+.nums {
+	color: #7C24C4;
+}
+.decorator_or_func_definition{
+	color: #AB64B0;
+}
+/*p {
+	margin: 15px;
+	white-space: pre-wrap;
+}*/

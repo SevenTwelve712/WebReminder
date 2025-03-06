@@ -1,0 +1,37 @@
+{% macro table(table) %}
+<table class="content_table" style="{% for style in table.styles %}{{ style }}; {% endfor %}">
+    {% if table.caption %}
+    <caption>
+        {{ table.caption }}
+    </caption>
+    {% endif %}
+    <thead>
+    <tr>
+    {% for elem in table.header %}
+        <td>{{elem}}</td>
+    {% endfor %}
+    </tr>
+    </thead>
+    {% for line in table.lines[:-1] %}
+
+    {% if line.type_ == "subhead" %}
+    <tr class="subheading">
+        <td>{{ line.content }}</td>
+    </tr>
+    {% else %}
+    <tr>
+        {% for elem in line %}
+        <td>{{ elem }}</td>
+        {% endfor %}
+    </tr>
+    {% endif %}
+    {% endfor %}
+    <tfoot>
+    <tr>
+        {% for elem in table.get_last() %}
+        <td>{{ elem }}</td>
+        {% endfor %}
+    </tr>
+    </tfoot>
+</table>
+{% endmacro %}

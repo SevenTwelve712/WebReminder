@@ -1,0 +1,22 @@
+<ul class="navul">
+	{% for header_block in navbar.get_headers() %}
+	<li>
+		{% if header_block.get_header().has_link() %}
+		<a href="{{ header_block.get_header().path }}">{{ header_block.get_header().name }}  &#9662</a>
+		{% else %}
+		{{ header_block.get_header().name }}  &#9662
+		{% endif %}
+		{% if header_block.has_pages() %}
+		<ul class="dropdown">
+			{% for elem in header_block.get_pages() %}
+			{% if elem.has_link() %}
+			<li><a href="{{ elem.path }}">{{ elem.name }}</a></li>
+			{% else %}
+			<li>{{ elem.name }}</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</li>
+	{% endfor %}
+</ul>

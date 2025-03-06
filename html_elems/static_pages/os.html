@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="C:/Users/seven/Documents/Python_projects/WebReminder/html_elems/styles/libraries.css">
+    <link rel="stylesheet" type="text/css" href="C:/Users/seven/Documents/Python_projects/WebReminder/html_elems/styles\navigation.css">
+    <title>os</title>
+</head>
+<body>
+<ul class="navul">
+	<li>
+		Главная  &#9662
+	</li>
+	<li>
+		Библиотеки  &#9662
+		<ul class="dropdown">
+			<li><a href="C:\Users\seven\Documents\Python_projects\WebReminder\html_elems\static_pages\csv.html">csv</a></li>
+			<li><a href="C:\Users\seven\Documents\Python_projects\WebReminder\html_elems\static_pages\functools.html">functools</a></li>
+			<li><a href="C:\Users\seven\Documents\Python_projects\WebReminder\html_elems\static_pages\itertools.html">itertools</a></li>
+			<li><a href="C:\Users\seven\Documents\Python_projects\WebReminder\html_elems\static_pages\json.html">json</a></li>
+			<li><a href="C:\Users\seven\Documents\Python_projects\WebReminder\html_elems\static_pages\math.html">math</a></li>
+			<li><a href="C:\Users\seven\Documents\Python_projects\WebReminder\html_elems\static_pages\os.html">os</a></li>
+			<li><a href="C:\Users\seven\Documents\Python_projects\WebReminder\html_elems\static_pages\random.html">random</a></li>
+		</ul>
+	</li>
+	<li>
+		Инструкции  &#9662
+		<ul class="dropdown">
+			<li><a href="C:/Users/seven/Documents/Python_projects/WebReminder/html_elems/static_pages/telebot.html">telebot</a></li>
+		</ul>
+	</li>
+</ul><table class="content_table" style="">
+    <caption>
+        os
+    </caption>
+    <thead>
+    <tr>
+        <td>Функция или метод</td>
+        <td>Аргументы</td>
+        <td>Смысл</td>
+        <td>Пример использования</td>
+    </tr>
+    </thead>
+
+    <tr>
+        <td>name</td>
+        <td>Нет</td>
+        <td>Возвращает имя операционки. Что может возвращать: 'posix', 'nt' == Windows для пк, 'mac', 'ce' == Windows для калькуляторов и проч. хуеты, 'os2', 'java'</td>
+        <td>name<hr>'nt'</td>
+    </tr>
+
+    <tr>
+        <td>environ</td>
+        <td>Нет</td>
+        <td>Возвращает словарь переменных окружения (можно изменять)</td>
+        <td>environ<hr>environ({'ALLUSERSPROFILE': 'C:\ProgramData', 'APPDATA': 'C:\Users\seven\AppData\Roaming', ... ебаца длинный словарь ... '_OLD_VIRTUAL_PROMPT': '$P$G'})</td>
+    </tr>
+
+    <tr>
+        <td>getlogin</td>
+        <td>Нет</td>
+        <td>Возвращает имя пользователя, вошедшего в систему</td>
+        <td>getlogin()<hr>'seven'</td>
+    </tr>
+
+    <tr>
+        <td>getpid</td>
+        <td>Нет</td>
+        <td>Текущий id процесса</td>
+        <td>getpid()<hr>9624</td>
+    </tr>
+
+    <tr>
+        <td>access</td>
+        <td><ul><li>path</li><li>mode</li><li>Всякая херня</li></ul></td>
+        <td>Чекает уровень доступа у текущего юзера к объекту (директория которого path). Mode = os.F_OK (объект существует) / os.R_OK (доступен на чтение) / os.W_OK (доступен на запись) / os.X_OK (доступен на исполнение). Возвращает true / false</td>
+        <td>access("C:\Program Files\Google\Chrome\Application\chrome.exe", X_OK)<hr>True</td>
+    </tr>
+
+    <tr>
+        <td>listdir</td>
+        <td>path</td>
+        <td>Выдает список из объектов (папок файлов и прочей херни) в path</td>
+        <td>listdir(path='C:\Program Files\Google\Chrome\Application)<hr>['115.0.5790.173', 'chrome.exe', 'chrome.VisualElementsManifest.xml', 'chrome_proxy.exe', 'master_preferences', 'SetupMetrics']</td>
+    </tr>
+
+    <tr>
+        <td>mkdir</td>
+        <td><ul><li>path</li><li>Прочая хуета</li></ul></td>
+        <td>Создает папку по пути path. Если папка есть, то OS error</td>
+        <td>makedirs("../Frol huesos/1/2")<hr>Теперь на порядок выше есть папка Frol huesos, в которой есть папка 1, в которой есть папка 2</td>
+    </tr>
+
+    <tr>
+        <td>makedirs</td>
+        <td><ul><li>path</li><li>Прочая хуета</li></ul></td>
+        <td>Создает папку с промежуточными папками. Но никакие из создающихся папок не должны уже быть, иначе OS error</td>
+        <td>makedirs("../Frol huesos/1/2")<hr>Теперь на порядок выше есть папка Frol huesos, в которой есть папка 1, в которой есть папка 2</td>
+    </tr>
+
+    <tr>
+        <td>remove</td>
+        <td><ul><li>path</li><li>Прочая хуета</li></ul></td>
+        <td>Удаляет путь к файлу</td>
+        <td>remove('C:\test os\Frol huesos\1.txt')<hr>Теперь в папке Frol huesos нет файла 1.txt</td>
+    </tr>
+
+    <tr>
+        <td>rename</td>
+        <td><ul><li>a</li><li>b</li></ul></td>
+        <td>Переименовывает a в b</td>
+        <td>rename('1.docx', '2.docx')<hr>Теперь файл 1.docx называется 2.docx</td>
+    </tr>
+
+    <tr>
+        <td>system</td>
+        <td>command</td>
+        <td>Выполняет системную команду и возвращает код завершения (в случае успеха 0)</td>
+        <td>system("taskmgr")<hr>Откроет диспетчер задач, а после его закрытия вернет 0</td>
+    </tr>
+
+    <tr>
+        <td>path.abspath</td>
+        <td>path</td>
+        <td>Возвращает нормализированный абсолютный путь</td>
+        <td>ath.abspath('../../Документы')<hr>'C:\Users\seven\Документы'</td>
+    </tr>
+
+    <tr>
+        <td>path.dirname</td>
+        <td>path</td>
+        <td>Возвращает путь к родительской директории объекта path</td>
+        <td>path.dirname("C:\Users\seven\PycharmProjects\1")<hr>"C:\Users\seven\PycharmProjects"</td>
+    </tr>
+
+    <tr>
+        <td>path.exists</td>
+        <td>path</td>
+        <td>Возвращает True если path существует</td>
+        <td>path.exists("C:\Users\seven\PycharmProjects")<hr>True</td>
+    </tr>
+
+    <tr>
+        <td>path.getatime</td>
+        <td>path</td>
+        <td>Время последнего доступа к файлу, в секундах</td>
+        <td>path.getatime("C:\Users\seven\PycharmProjects\1\1.py")<hr>1689501056.968194</td>
+    </tr>
+
+    <tr>
+        <td>path.getmtime</td>
+        <td>path</td>
+        <td>Время последнего изменения файла, в секундах</td>
+        <td>path.getmtime("C:\Users\seven\PycharmProjects\1\1.py")<hr>1689013312.5243974</td>
+    </tr>
+
+    <tr>
+        <td>path.getctime</td>
+        <td>path</td>
+        <td>Время создания файла (Windows), время последнего изменения файла (Unix)</td>
+        <td>path.getctime("C:\Users\seven\PycharmProjects\1\1.py")<hr>1688768825.913251</td>
+    </tr>
+
+    <tr>
+        <td>path.getsize</td>
+        <td>path</td>
+        <td>Размер файла (в байтах)</td>
+        <td>path.getsize("C:\Users\seven\PycharmProjects\1\1.py")<hr>918</td>
+    </tr>
+
+    <tr>
+        <td>path.isabs</td>
+        <td>path</td>
+        <td>Проверяет, является ли путь абсолютным</td>
+        <td>path.isabs("C:\Users\seven\PycharmProjects\1\1.py")<hr>True</td>
+    </tr>
+
+    <tr>
+        <td>path.isfile</td>
+        <td>path</td>
+        <td>Проверяет, является ли путь файлом</td>
+        <td>path.isfile("C:\Users\seven\PycharmProjects\1\1.py")<hr>True</td>
+    </tr>
+
+    <tr>
+        <td>path.isdir</td>
+        <td>path</td>
+        <td>Проверяет, является ли путь директорией</td>
+        <td>path.isdir("C:\Users\seven\PycharmProjects\1\1.py")<hr>False</td>
+    </tr>
+
+    <tr>
+        <td>path.islink</td>
+        <td>path</td>
+        <td>Проверяет, является ли путь относительной ссылкой</td>
+        <td>path.islink("C:\Users\seven\PycharmProjects\1\1.py")<hr>False</td>
+    </tr>
+
+    <tr>
+        <td>path.relpath</td>
+        <td><ul><li>path</li><li>start=None</li></ul></td>
+        <td>Вычисляет путь к path относительно директории start (по умолчанию директория исполняемого файла)</td>
+        <td>path.relpath("C:\Users\seven\PycharmProjects\1\1.py", start="C:\Program Files")<hr>"..\Users\seven\PycharmProjects\1\1.py"</td>
+    </tr>
+    <tfoot>
+    <tr>
+        <td>path.samefile</td>
+        <td><ul><li>path1</li><li>path2</li></ul></td>
+        <td>Проверяет, указывают ли path1 и path2 на один и тот же объект</td>
+        <td>path.samefile("..\..\..\..\Иконки\17.ico", "C:\Иконки\17.ico")<hr>True</td>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

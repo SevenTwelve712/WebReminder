@@ -1,0 +1,13 @@
+{% macro chapter_list(chapter_list) %}
+<div class="chapter_list">
+    <text class="up">
+        <a href="#">▲</a>
+    </text>
+    Содержание
+		<ol>
+            {% for header, id in chapter_list.items() %}
+            <li><a href="#{{ id }}">{{ header }}</a></li>
+            {% endfor %}
+		</ol>
+</div>
+{% endmacro %}

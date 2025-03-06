@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'for_navigation';
+  src: url('../fonts/for_navigation.ttf') format('truetype');
+}
+.navul{
+  list-style: none;
+  background: #6495ED;
+  font-family: "for_navigation";
+  margin: 0 10px 0 10px;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.navul li{
+  padding: 30px 5px 30px 5px;
+  display: inline-block;
+  position: relative;
+  line-height: 21px;
+  text-align: left;
+  color: white;
+}
+
+.navul li a{
+  margin: 15px;
+  display: block;
+  text-decoration: none;
+}
+
+.navul li:hover{
+  background: #ADD8E6;
+  border-radius: 20px;
+}
+.navul li ul.dropdown{
+  margin-top: 30px;
+  width: 100%;
+  background: #87CEFA;
+  display: none;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  border-radius: 20px;
+  text-align: left;
+  padding: 0;
+}
+.navul li ul li a{
+  color: black;
+}
+
+.navul li:hover ul.dropdown{
+  display: block; /* Отображаем раскрывающийся список */
+}
+
+.navul li ul.dropdown li{
+  width: 100%;
+}
+
+.navul li ul.dropdown li:hover{
+  border-radius: 20px;
+  background: #ADD8E6;
+}
