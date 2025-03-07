@@ -7,6 +7,7 @@ navbar_f = NavigationBar(
     [
         NavHeaderBlock(NavElem('Главная', False), False),
         NavHeaderBlock(NavElem('Библиотеки', False), [
+            NavElem('builtins', abspath(static_pages + '/builtins.html')),
             NavElem('csv', abspath(f'{static_pages}/csv.html')),
             NavElem('functools', abspath(f'{static_pages}/functools.html')),
             NavElem('itertools', abspath(f'{static_pages}/itertools.html')),
@@ -16,7 +17,10 @@ navbar_f = NavigationBar(
             NavElem('random', abspath(f'{static_pages}/random.html')),
         ]),
         NavHeaderBlock(NavElem('Инструкции', False), [
-            NavElem('telebot', static_pages + '/telebot.html')
+            NavElem('telebot', static_pages + '/telebot.html'),
+            NavElem('css_reminder', static_pages + '/css_reminder.html'),
+            NavElem('html_reminder', static_pages + '/html_reminder.html'),
+            NavElem('attributes', static_pages + '/attributes.html')
         ])
     ]
 )

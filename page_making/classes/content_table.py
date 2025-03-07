@@ -10,6 +10,7 @@ class ContentTableLine:
         :param content: Что будет записано в строке. Список если это обычная строка, и ничего совмещать не надо.
          Строка, если это подзаголовок
         :param type_: Тип строки: обычный или подзаголовок
+        :param show_tags: Будет ли экранировано содержимое линии (если False, то да, иначе нет)
         """
         self.content = content
 
@@ -60,7 +61,7 @@ class ContentTable:
         """
         env = Environment(
             loader=FileSystemLoader(jinja_templs),
-            autoescape=select_autoescape("html")
+            autoescape=False
         )
         env.trim_blocks = True
         env.lstrip_blocks = True

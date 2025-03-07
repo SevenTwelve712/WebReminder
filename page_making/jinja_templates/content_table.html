@@ -16,7 +16,7 @@
 
     {% if line.type_ == "subhead" %}
     <tr class="subheading">
-        <td>{{ line.content }}</td>
+        <td colspan="{{ table.columns }}">{{ line.content }}</td>
     </tr>
     {% else %}
     <tr>

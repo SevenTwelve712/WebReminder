@@ -10,6 +10,12 @@
     font-family: 'for_subtitles';
     src: url('../fonts/for_subtitles.ttf') format('truetype');
 }
+.subheading td{
+	font-family: for_subtitles;
+	font-size: 40px;
+	background: #B0C4DE;
+	color: white;
+}
 body{
 	margin: 0px;
 }
@@ -61,12 +67,4 @@ hr {
     background: #20B2AA;
     border: 0;
     margin: 1% 10% 1% 10%;
-}
-
-.subtitle{
-	border-radius: 0 0 0 0;
-	font-family: for_subtitles;
-	font-size: 40px;
-	background: #B0C4DE;
-	color: white;
 }

@@ -1,6 +1,6 @@
-from page_making.classes.instructions import *
 from help.support.abspaths import static_pages
 from pathlib import Path
+from page_making.classes.instruction import Instruction
 
 code1 = """from telebot import *
 
@@ -95,55 +95,24 @@ chapter_list = {
     'Создание inline кнопок': 'inlinebutton_creating'
 }
 
-content = [
-    InstructionContentElem('h2', ['Начало работы с ботом', 'start']),
-    InstructionContentElem('p', 'Что нужно для старта бота:'),
-    InstructionContentElem('start_ul', None),
-    InstructionContentElem('li', 'Создать объект бота, в котором указать токен'),
-    InstructionContentElem('li', 'Запустить бота через метод infinity_polling()'),
-    InstructionContentElem('end_ul', None),
-    InstructionContentElem('p', 'Данный бот ничего не будет делать'),
-    InstructionContentElem('code', code1),
-    InstructionContentElem('h2', ['Отправка сообщений', 'common_things']),
-    InstructionContentElem('p', 'Отправка сообщений обычным способом:'),
-    InstructionContentElem('code', code2),
-    InstructionContentElem('p', 'Ответ на сообщение:'),
-    InstructionContentElem('code', code3),
-    InstructionContentElem('p', 'Отправка фото:'),
-    InstructionContentElem('code', code4),
-    InstructionContentElem('p', 'Отправка видео:'),
-    InstructionContentElem('code', code5),
-    InstructionContentElem('p', 'Отправка аудио:'),
-    InstructionContentElem('code', code6),
-    InstructionContentElem('p', 'Отправка файла:'),
-    InstructionContentElem('code', code7),
-    InstructionContentElem('h2', ['Обработка команд', 'command_handler']),
-    InstructionContentElem('p', 'Для обработки команд надо написать функцию, задекорировав ее декоратором @bot.message_handler с параметром commands=[Список команд]'),
-    InstructionContentElem('code', code8),
-    InstructionContentElem('h2', ['Обработка текста', 'text_handler']),
-    InstructionContentElem('p', 'Для обработки текста надо написать функцию, задекрорировав ее декоратором @bot.message_handler с параметром content_types=["text"]'),
-    InstructionContentElem('code', code9),
-    InstructionContentElem('h2', ['Создание reply кнопок', 'replybutton_creating']),
-    InstructionContentElem('p', 'Reply кнопки — кнопки, при нажатии которых в чат отсылается некий текст Для создания reply кнопок надо:'),
-    InstructionContentElem('start_ul', None),
-    InstructionContentElem('li', 'Создать объект types.ReplyKeyboardMarkup(row_width=кол-во сообщений в одном ряду, resize_keyboard=True)<br>Прим: параметр resize_keyboard нужно установить True если мы не хотим ебейшие кнопки на полэкрана'),
-    InstructionContentElem('li', 'Создать сами кнопки (types.KeyboardButton(text="Текст, который будет написан на кнопке и который она будет отсылаться в чат"))'),
-    InstructionContentElem('li', 'Добавить в объект из 1) кнопки из 2) с помощью метода add'),
-    InstructionContentElem('li', 'В параметре reply_markup отсылаемого сообщения указать объект из 1). Тогда после того, как будет отослано это сообщение, кнопки появятся (Прим: при последующих перезапусках бота кнопки уже будут, они исчезнут только если удалить чат с ботом)'),
-    InstructionContentElem('code', code10),
-    InstructionContentElem('h2', ['Создание inline кнопок', 'inlinebutton_creating']),
-    InstructionContentElem('p', 'Inline кнопки — кнопки под сообщением. Их функционал гораздо шире, чем у reply кнопок. Для создания inline кнопок надо:'),
-    InstructionContentElem('li', 'Создать объект types.InlineKeyboardMarkup(row_width=количество кнопок в ряду под сообщением, по умолчанию 3)'),
-    InstructionContentElem('li', 'Создать сами кнопки: types.InlineKeyboardButton(text="Текст кнопки", callback_data="любая строка")'),
-    InstructionContentElem('li', 'Добавить в объект из 1) кнопки из 2) с помощью метода add'),
-    InstructionContentElem('li', 'параметре reply_markup отсылаемого сообщения указать объект из 1). Тогда после того, как будет отослано это сообщение, кнопки появятся'),
-    InstructionContentElem('li', 'Создать декоратор @bot.callback_query_handler(func=lambda call: True)'),
-    InstructionContentElem('li', 'В нем написать функцию с 1 аргументом (назовем его call) и любым названием (назовем ее callback_inline)'),
-    InstructionContentElem('li', 'Написать в ф-ии if call.message:'),
-    InstructionContentElem('li', 'В ifе из 7) написать if call.data == "строка из callback_data пункта 2)":'),
-    InstructionContentElem('li', 'прописать действие кнопки (например, отправку сообщения: bot.send_message(call.message.chat.id, "Пошел нахуй"))'),
-    InstructionContentElem('code', code11),
-    InstructionContentElem('p', 'Ну как бы все епта. Простенького бота теперь осилиш')
-]
-instruction = Instruction('telebot', content, chapter_list)
+kwargs = {
+    'code1': code1,
+    'code2': code2,
+    'code3': code3,
+    'code4': code4,
+    'code5': code5,
+    'code6': code6,
+    'code7': code7,
+    'code8': code8,
+    'code9': code9,
+    'code10': code10,
+    'code11': code11,
+}
+
+instruction = Instruction(
+    'telebot',
+    'telebot.html',
+    kwargs,
+    chapter_list
+)
 instruction.make_static(Path(static_pages, 'telebot.html'))

@@ -2,7 +2,8 @@ class UnorderedList:
     def __init__(self, content: list[str]):
         """
         Класс неупорядоченного списка (<ul></ul>). Создан для упрощения работы с такими списками
-        :param content:
+        :param content: Элементы списка
+        :param show_tags: Будет ли экранировано содержимое элементов (если False, то да, иначе нет)
         """
         self.content = content
 
