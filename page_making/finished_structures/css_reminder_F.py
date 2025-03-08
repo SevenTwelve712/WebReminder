@@ -1,7 +1,8 @@
 from page_making.classes.instruction import Instruction
 from page_making.classes.content_table import *
 from pathlib import Path
-from help.support.abspaths import static_pages
+from help.support.abspaths import static_pages, jinja_templs
+from page_making.classes.chapter_list import define_from_html
 
 useful = ContentTable(
     False,
@@ -82,12 +83,7 @@ class_ = """.my_class{
 	border: 3px solid black;
 }"""
 
-headers = {
-    'Где писать и подключать стили': 'main',
-    'Как писать стили в .css': 'how',
-    'Некоторые полезные свойства': 'useful',
-    'Псевдоклассы и псевдоэлементы': 'pseudo'
-}
+headers = define_from_html(jinja_templs + '/css_reminder.html')
 
 kwargs = {
     'useful': useful,

@@ -1,12 +1,10 @@
+{% from 'chapter_list_show_children.html' import show_children %}
 {% macro chapter_list(chapter_list) %}
 <div class="chapter_list">
-    <text class="up">
-        <a href="#">▲</a>
-    </text>
     Содержание
 		<ol>
-            {% for header, id in chapter_list.items() %}
-            <li><a href="#{{ id }}">{{ header }}</a></li>
+            {% for header in chapter_list %}
+            {{ show_children(header) }}
             {% endfor %}
 		</ol>
 </div>

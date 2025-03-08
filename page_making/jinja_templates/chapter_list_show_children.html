@@ -1,0 +1,10 @@
+{% macro show_children(header) %}
+<li><a href="#{{ header.id}}">{{ header.text }}</a></li>
+{% if header.subheads %}
+  <ul>
+    {% for header in header.subheads %}
+    {{ show_children(header) }}
+    {%- endfor %}
+  </ul>
+{% endif %}
+{% endmacro %}

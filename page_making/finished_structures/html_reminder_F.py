@@ -2,8 +2,9 @@ from page_making.classes.content_table import ContentTable, ContentTableLine
 from page_making.classes.unordered_list import UnorderedList
 from page_making.classes.instruction import Instruction
 from pathlib import Path
-from help.support.abspaths import static_pages
+from help.support.abspaths import static_pages, jinja_templs
 from help.support.escape import escape
+from page_making.classes.chapter_list import define_from_html
 
 div_table = ContentTable(
     False,
@@ -80,19 +81,19 @@ table_tags = ContentTable(
         ContentTableLine(
             [
                 escape('<thead></thead>'),
-                'Позволяет хранить одну или несколько строк (<tr></tr>), выделяя их, как начальные строки таблицы'
+                escape('Позволяет хранить одну или несколько строк (<tr></tr>), выделяя их, как начальные строки таблицы')
             ]
         ),
         ContentTableLine(
             [
                 escape('<tbody></tbody>'),
-                'Позволяет хранить одну или несколько строк (<tr></tr>), выделяя их, как основную инфу в таблице'
+                escape('Позволяет хранить одну или несколько строк (<tr></tr>), выделяя их, как основную инфу в таблице')
             ]
         ),
         ContentTableLine(
             [
                 escape('<tfoot></tfoot>'),
-                'Позволяет хранить одну или несколько строк (<tr></tr>), выделяя их, как футер таблицы'
+                escape('Позволяет хранить одну или несколько строк (<tr></tr>), выделяя их, как футер таблицы')
             ]
         )
     ]
@@ -195,12 +196,7 @@ kwargs = {
     'html_template': html_template
 }
 
-chapter_list = {
-    'div': 'div',
-    'table': 'table',
-    'Остальные теги': 'other_tags',
-    'Шаблон html-документа': 'html_template'
-}
+chapter_list = define_from_html(jinja_templs + '/html_reminder.html')
 
 instruction = Instruction(
     'Html reminder',

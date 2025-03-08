@@ -1,6 +1,8 @@
 from help.support.abspaths import static_pages
 from pathlib import Path
 from page_making.classes.instruction import Instruction
+from page_making.classes.chapter_list import define_from_html
+from help.support.abspaths import jinja_templs
 
 code1 = """from telebot import *
 
@@ -86,14 +88,7 @@ def callback_inline(call):
 # При нажатии на Suction юзеру отправится сообщение 6 hot loads
 # При нажатии на Billy юзеру отправится сообщение Herrington"""
 
-chapter_list = {
-    'Начало': 'start',
-    'Отправка сообщений': 'common_things',
-    'Обработка команд': 'command_handler',
-    'Обработка текста': 'text_handler',
-    'Создание reply кнопок': 'replybutton_creating',
-    'Создание inline кнопок': 'inlinebutton_creating'
-}
+chapter_list = define_from_html(jinja_templs + '/telebot.html')
 
 kwargs = {
     'code1': code1,
