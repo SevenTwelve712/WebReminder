@@ -88,3 +88,8 @@ a {
 ul {
     list-style-type: disc;
 }
+
+code{
+    background: #66CDAA;
+    border-radius: 5px;
+}

@@ -1,10 +1,16 @@
-{% from 'chapter_list_show_children.html' import show_children %}
 {% macro chapter_list(chapter_list) %}
 <div class="chapter_list">
     Содержание
 		<ol>
-            {% for header in chapter_list %}
-            {{ show_children(header) }}
+            {% for header in chapter_list recursive%}
+            <li>
+                <a href="#{{ header.id}}">{{ header.text }}</a>
+                {% if header.subheads %}
+                <ul>
+                    {{ loop(header.subheads) }}
+                </ul>
+                {% endif %}
+            </li>
             {% endfor %}
 		</ol>
 </div>

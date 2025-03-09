@@ -15,12 +15,14 @@ navbar_f = NavigationBar(
             NavElem('math', abspath(f'{static_pages}/math.html')),
             NavElem('os', abspath(f'{static_pages}/os.html')),
             NavElem('random', abspath(f'{static_pages}/random.html')),
+            NavElem('jinja2', static_pages + '/jinja2_lib.html')
         ]),
         NavHeaderBlock(NavElem('Инструкции', False), [
             NavElem('telebot', static_pages + '/telebot.html'),
             NavElem('css_reminder', static_pages + '/css_reminder.html'),
             NavElem('html_reminder', static_pages + '/html_reminder.html'),
-            NavElem('attributes', static_pages + '/attributes.html')
+            NavElem('attributes', static_pages + '/attributes.html'),
+            NavElem('jinja2', static_pages + '/jinja2.html')
         ])
     ]
 )

@@ -1,5 +1,5 @@
 from typing import Union
-from jinja2 import FileSystemLoader, Environment, select_autoescape
+from jinja2 import FileSystemLoader, Environment
 from help.support.abspaths import jinja_templs
 
 

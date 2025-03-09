@@ -63,7 +63,7 @@ table_tags = ContentTable(
         ContentTableLine(
             [
                 escape('<th></th>'),
-                'Задает заголовочную строку. Может быть помещен внутри <tr></tr>. Для более конкретного назначения заголовка (по типу для кого заголовок: для столбца, строки или еще какой хуйни) рекомендуется использовать атрибут <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th">scope</a>'
+                'Задает заголовочную строку. Может быть помещен внутри &lt;tr&gt;&lt;/tr&gt;. Для более конкретного назначения заголовка (по типу для кого заголовок: для столбца, строки или еще какой хуйни) рекомендуется использовать атрибут <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th">scope</a>'
             ]
         ),
         ContentTableLine(
