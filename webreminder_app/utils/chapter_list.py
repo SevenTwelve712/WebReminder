@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, PackageLoader
+from help.support.abspaths import start
 
 
 class Header:
@@ -34,9 +35,11 @@ def define_from_html(path: str):
     :param path: Путь к html документу
     :return: Список заголовков меньшего уровня. У каждого из них могут быть потомки низшего уровня
     """
-    with open(path, encoding='utf8') as html:
-        soup = BeautifulSoup(html, 'html.parser')
-        headers = soup.find_all([f"h{i}" for i in range(1, 7)])
+    with open('templates/finished/' + path, encoding='utf_8') as f:
+        html = f.read()
+    soup = BeautifulSoup(html, 'html.parser')
+
+    headers = soup.find_all([f"h{i}" for i in range(1, 7)])
 
     # Заголовки — html теги заголовков, т.е. их уровни могут быть от 1 до 6
     # Пусть parent несуществующий заголовок с невозможно маленьким уровнем.
@@ -69,10 +72,10 @@ def define_from_html(path: str):
     return parent.subheads
 
 
-if __name__ == '__main__':
-    struct = define_from_html('../../test/chapters_test.html')
-    env = Environment(loader=FileSystemLoader('../jinja_templates'))
-    env.trim_blocks = True
-    env.lstrip_blocks = True
-    templ = env.get_template('ct.html')
-    print(templ.render(struct=struct))
+# if __name__ == '__main__':
+#     struct = define_from_html('../../test/chapters_test.html')
+#     env = Environment(loader=FileSystemLoader('../jinja_templates'))
+#     env.trim_blocks = True
+#     env.lstrip_blocks = True
+#     templ = env.get_template('ct.html')
+#     print(templ.render(struct=struct))

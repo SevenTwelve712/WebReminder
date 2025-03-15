@@ -1,8 +1,6 @@
 from webreminder_app.utils.instruction import Instruction
 from webreminder_app.utils.content_table import *
-from help.support.abspaths import static_pages
 from webreminder_app.utils.unordered_list import UnorderedList
-from pathlib import Path
 
 content = ContentTable(
     False,
@@ -53,4 +51,3 @@ instruction = Instruction(
     {'content': content},
     {}
 )
-instruction.make_static(Path(static_pages, 'attributes.html'))

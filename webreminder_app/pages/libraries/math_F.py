@@ -148,4 +148,3 @@ content = ContentTable(
 )
 
 page = LibraryPage('math', False, content)
-page.make_static(Path(static_pages, 'math.html'))

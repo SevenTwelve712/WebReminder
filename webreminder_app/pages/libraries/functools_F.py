@@ -35,4 +35,3 @@ content = ContentTable(
 )
 
 page = LibraryPage('functools', False, content)
-page.make_static(Path(static_pages, 'functools.html'))

@@ -1,4 +1,5 @@
 {% macro table(table) %}
+{% autoescape false %}
 <table class="content_table" style="{% for style in table.styles %}{{ style }}; {% endfor %}">
     {% if table.caption %}
     <caption>
@@ -34,4 +35,5 @@
     </tr>
     </tfoot>
 </table>
+{% endautoescape %}
 {% endmacro %}

@@ -38,4 +38,3 @@ content = ContentTable(
 )
 
 page = LibraryPage('csv', extra, content)
-page.make_static(Path(static_pages, 'csv.html'))

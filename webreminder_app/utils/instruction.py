@@ -17,7 +17,7 @@ class Instruction:
         self.content = content
         self.content_kwargs = content_render_kwargs
         self.chapter_list = chapter_list
-        self.styles = [html_styles + elem for elem in ('/code_block.css', '/instructions.css', '/libraries.css', '/navigation.css')]
+        self.styles = ('/code_block.css', '/instructions.css', '/libraries.css', '/navigation.css')
 
     def render(self):
         env = Environment(

@@ -1,9 +1,6 @@
 from webreminder_app.utils.content_table import ContentTable
-from webreminder_app.pages.navigation_bar import navbar_f
 from typing import Union
-from pathlib import Path
-from help.support.abspaths import html_styles, jinja_templs
-from jinja2 import Environment, PackageLoader
+
 
 class LibraryPage:
     def __init__(self, library: str, extra_info: Union[ContentTable, bool], content: ContentTable):
@@ -17,31 +14,9 @@ class LibraryPage:
         self.name = library
         self.content = content
         self.extra = extra_info
-        # self.styles = [html_styles + style for style in ('/libraries.css', '/navigation.css')]
-        self.styles =  ('/libraries.css', '/navigation.css')
+        self.styles = ('/libraries.css', '/navigation.css')
 
         if extra_info:
             # Такой ход конем необходим, тк таблица должна быть отделена от нав окна.
             # Обычно свойством margin-top обладает caption, но тк extra отображается выше его, то приходится прикручивать руками стили
             self.extra.add_styles(['margin-top: 40px'])
-
-    def render(self):
-        env = Environment(loader=PackageLoader('webreminder_app', "templates/utils"), autoescape=False)
-        env.trim_blocks = True
-        env.lstrip_blocks = True
-        template = env.get_template('library.html')
-        return template.render(
-            library=self,
-            navbar=navbar_f
-        )
-
-    def make_static(self, path_to_file: Path):
-        """
-        Сохраняет сгенерированный документ в html файле
-        :param path_to_file: Путь к файлу
-        """
-        if path_to_file.parts[-2] != 'static_pages':
-            raise ValueError('all rendered html pages must be in html_elems/static_pages')
-
-        with open(path_to_file, 'w', encoding='utf-8') as f:
-            f.write(self.render())

@@ -88,7 +88,7 @@ def callback_inline(call):
 # При нажатии на Suction юзеру отправится сообщение 6 hot loads
 # При нажатии на Billy юзеру отправится сообщение Herrington"""
 
-chapter_list = define_from_html(jinja_templs + '/telebot.html')
+chapter_list = define_from_html('telebot.html')
 
 kwargs = {
     'code1': code1,
@@ -110,4 +110,3 @@ instruction = Instruction(
     kwargs,
     chapter_list
 )
-instruction.make_static(Path(static_pages, 'telebot.html'))

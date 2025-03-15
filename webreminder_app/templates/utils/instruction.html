@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-{% from 'content_table.html' import table %}
-{% from 'chapter_list.html' import chapter_list %}
+{% autoescape false %}
+{% from 'utils/content_table.html' import table with context %}
+{% from 'utils/chapter_list.html' import chapter_list with context %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% for style in instruction.styles %}
-    <link rel="stylesheet" type="text/css" href="{{ style }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles' + style) }}">
     {% endfor %}
     <title>{{ instruction.name }}</title>
 </head>
 <body>
 <div class="up"><a href="#">↑</a></div>
-{% include 'nav_bar.html' %}
+{% include 'utils/nav_bar.html' %}
 <h1>{{ instruction.name }}</h1>
 {{ chapter_list(instruction.chapter_list) }}
 <div class="content">
-  {% include instruction.content %}
+  {% include 'finished/' + instruction.content %}
 </div>
 </body>
 </html>
+{% endautoescape %}

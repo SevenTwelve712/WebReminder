@@ -1,5 +1,7 @@
 {% macro code_block(code) %}
+{% autoescape false %}
 <div class="code_block">
     <pre>{{ code }}</pre>
 </div>
+{% endautoescape %}
 {% endmacro %}

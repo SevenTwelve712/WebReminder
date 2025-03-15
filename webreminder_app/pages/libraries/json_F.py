@@ -39,4 +39,3 @@ content = ContentTable(
 )
 
 page = LibraryPage('json', extra, content)
-# page.make_static(Path(static_pages, 'json.html'))

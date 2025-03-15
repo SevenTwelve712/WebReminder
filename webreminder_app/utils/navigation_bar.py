@@ -17,7 +17,14 @@ class NavElem:
         """
         self.name = name
         self.has_link_ = bool(link)
-        self.link = name
+        if link is True:
+            self.link = name
+
+        elif link is False:
+            self.link = None
+
+        else:
+            self.link = link
 
     def has_link(self):
         return self.has_link_

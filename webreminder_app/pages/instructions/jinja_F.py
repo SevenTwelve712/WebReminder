@@ -198,6 +198,5 @@ page = Instruction(
     'jinja2',
     'jinja.html',
     kwargs,
-    define_from_html(jinja_templs + '/jinja.html')
+    define_from_html('jinja.html')
 )
-page.make_static(Path(static_pages, 'jinja2.html'))

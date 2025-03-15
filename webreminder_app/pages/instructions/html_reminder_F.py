@@ -1,8 +1,6 @@
 from webreminder_app.utils.content_table import ContentTable, ContentTableLine
 from webreminder_app.utils.unordered_list import UnorderedList
 from webreminder_app.utils.instruction import Instruction
-from pathlib import Path
-from help.support.abspaths import static_pages, jinja_templs
 from markupsafe import escape
 from webreminder_app.utils.chapter_list import define_from_html
 
@@ -196,7 +194,7 @@ kwargs = {
     'html_template': html_template
 }
 
-chapter_list = define_from_html(jinja_templs + '/html_reminder.html')
+chapter_list = define_from_html('html_reminder.html')
 
 instruction = Instruction(
     'Html reminder',
@@ -204,4 +202,3 @@ instruction = Instruction(
     kwargs,
     chapter_list
 )
-instruction.make_static(Path(static_pages, 'html_reminder.html'))

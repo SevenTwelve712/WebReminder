@@ -89,4 +89,3 @@ content = ContentTable(
 
 
 page = LibraryPage('itertools', False, content)
-page.make_static(Path(static_pages, 'itertools.html'))

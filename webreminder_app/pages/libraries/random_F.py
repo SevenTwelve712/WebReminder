@@ -68,4 +68,3 @@ content = ContentTable(
 )
 
 page = LibraryPage('random', False, content)
-page.make_static(Path(static_pages, 'random.html'))

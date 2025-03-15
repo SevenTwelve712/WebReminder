@@ -204,4 +204,3 @@ content = ContentTable(
 )
 
 page = LibraryPage('os', False, content)
-page.make_static(Path(static_pages, 'os.html'))

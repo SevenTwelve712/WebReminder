@@ -137,4 +137,3 @@ page = LibraryPage(
     'jinja2',
     False, content
 )
-page.make_static(Path(static_pages, 'jinja2_lib.html'))

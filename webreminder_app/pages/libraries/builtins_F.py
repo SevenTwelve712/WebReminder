@@ -238,4 +238,3 @@ page = LibraryPage(
     False,
     content
 )
-page.make_static(Path(static_pages, 'builtins.html'))

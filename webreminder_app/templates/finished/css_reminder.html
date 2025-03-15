@@ -1,5 +1,5 @@
-{% from 'code_block.html' import code_block %}
-{% from 'content_table.html' import table %}
+{% from 'utils/code_block.html' import code_block %}
+{% from 'utils/content_table.html' import table %}
 <h2 id="main">Где писать и подключать стили</h2>
 <p>Css — язык разметки, определяющий стили в документах html. Обычно стили прописываются в отдельном документе с расширением .css. Для того чтобы использовать стили из .css файла, его нужно подключить в &lt;head&gt;&lt;/head&gt;</p>
 {{ code_block('&lt;link rel="stylesheet" type="text/css" href="ссылка на файл"&gt;') }}

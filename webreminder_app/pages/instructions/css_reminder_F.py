@@ -1,7 +1,5 @@
 from webreminder_app.utils.instruction import Instruction
 from webreminder_app.utils.content_table import *
-from pathlib import Path
-from help.support.abspaths import static_pages, jinja_templs
 from webreminder_app.utils.chapter_list import define_from_html
 
 useful = ContentTable(
@@ -83,7 +81,7 @@ class_ = """.my_class{
 	border: 3px solid black;
 }"""
 
-headers = define_from_html(jinja_templs + '/css_reminder.html')
+headers = define_from_html('css_reminder.html')
 
 kwargs = {
     'useful': useful,
@@ -98,4 +96,3 @@ instruction = Instruction(
     kwargs,
     headers
 )
-instruction.make_static(Path(static_pages, 'css_reminder.html'))
