@@ -1,5 +1,5 @@
-from page_making.classes.content_table import ContentTable
-from page_making.finished_structures.navigation_bar_F import navbar_f
+from webreminder_app.utils.content_table import ContentTable
+from webreminder_app.pages.navigation_bar import navbar_f
 from typing import Union
 from pathlib import Path
 from help.support.abspaths import html_styles, jinja_templs
@@ -26,13 +26,10 @@ class LibraryPage:
             self.extra.add_styles(['margin-top: 40px'])
 
     def render(self):
-        env = Environment(
-            loader=FileSystemLoader(jinja_templs),
-            autoescape=select_autoescape('html')
-        )
+        env = Environment(loader=FileSystemLoader(jinja_templs), autoescape=False)
         env.trim_blocks = True
         env.lstrip_blocks = True
-        template = env.get_template('library.html')
+        template = env.get_template('utils/library.html')
         return template.render(
             library=self,
             navbar=navbar_f

@@ -1,7 +1,7 @@
-from page_making.classes.instruction import Instruction
-from page_making.classes.content_table import *
+from webreminder_app.utils.instruction import Instruction
+from webreminder_app.utils.content_table import *
 from help.support.abspaths import static_pages
-from page_making.classes.unordered_list import UnorderedList
+from webreminder_app.utils.unordered_list import UnorderedList
 from pathlib import Path
 
 content = ContentTable(

@@ -1,8 +1,8 @@
-from page_making.classes.instruction import Instruction
-from page_making.classes.content_table import *
+from webreminder_app.utils.instruction import Instruction
+from webreminder_app.utils.content_table import *
 from pathlib import Path
 from help.support.abspaths import static_pages, jinja_templs
-from page_making.classes.chapter_list import define_from_html
+from webreminder_app.utils.chapter_list import define_from_html
 
 useful = ContentTable(
     False,

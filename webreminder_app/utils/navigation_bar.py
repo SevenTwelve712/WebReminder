@@ -8,17 +8,18 @@ from help.support.abspaths import jinja_templs
 
 
 class NavElem:
-    def __init__(self, name: str, path: Union[str, Path, bool]):
+    def __init__(self, name: str, link: Union[str, bool] = True):
         """
         Низший элемент навигационного окна
         :param name: То, как элемент будет отображаться в окне
-        :param path: Путь к ссылке. Можно назначить False, в таком случае будет считаться, что элемент не имеет ссылки
+        :param link: Если True, то элемент будет со ссылкой на страницу, причем ссылка будет вычисляться по имени элемента.
+        Если False, то ссылки никуда не будет. Если строка, то ссылка будет вычисляться по этому параметру
         """
         self.name = name
-        self.path = path
+        self.link = link
 
     def has_link(self):
-        return bool(self.path)
+        return bool(self.link)
 
     def __repr__(self):
         return f"NavElem(name: {self.name}, path: {str(self.path)}"

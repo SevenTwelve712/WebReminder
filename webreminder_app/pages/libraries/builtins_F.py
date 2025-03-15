@@ -1,6 +1,6 @@
-from page_making.classes.content_table import *
-from page_making.classes.unordered_list import UnorderedList
-from page_making.classes.libraries_render import LibraryPage
+from webreminder_app.utils.content_table import *
+from webreminder_app.utils.unordered_list import UnorderedList
+from webreminder_app.utils.libraries_render import LibraryPage
 from pathlib import Path
 from help.support.abspaths import static_pages
 

@@ -2,7 +2,7 @@
 	{% for header_block in navbar.get_headers() %}
 	<li>
 		{% if header_block.get_header().has_link() %}
-		<a href="{{ header_block.get_header().path }}">{{ header_block.get_header().name }}  &#9662</a>
+		<a href="{{ url_for(header_block.get_header().link) }}">{{ header_block.get_header().name }}  &#9662</a>
 		{% else %}
 		{{ header_block.get_header().name }}  &#9662
 		{% endif %}
@@ -10,7 +10,7 @@
 		<ul class="dropdown">
 			{% for elem in header_block.get_pages() %}
 			{% if elem.has_link() %}
-			<li><a href="{{ elem.path }}">{{ elem.name }}</a></li>
+			<li><a href="{{ url_for(elem.link) }}">{{ elem.name }}</a></li>
 			{% else %}
 			<li>{{ elem.name }}</li>
 			{% endif %}

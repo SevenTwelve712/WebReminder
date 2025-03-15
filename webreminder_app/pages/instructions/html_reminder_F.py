@@ -1,10 +1,10 @@
-from page_making.classes.content_table import ContentTable, ContentTableLine
-from page_making.classes.unordered_list import UnorderedList
-from page_making.classes.instruction import Instruction
+from webreminder_app.utils.content_table import ContentTable, ContentTableLine
+from webreminder_app.utils.unordered_list import UnorderedList
+from webreminder_app.utils.instruction import Instruction
 from pathlib import Path
 from help.support.abspaths import static_pages, jinja_templs
-from help.support.escape import escape
-from page_making.classes.chapter_list import define_from_html
+from markupsafe import escape
+from webreminder_app.utils.chapter_list import define_from_html
 
 div_table = ContentTable(
     False,

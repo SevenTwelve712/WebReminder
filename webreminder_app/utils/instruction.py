@@ -1,6 +1,6 @@
-from jinja2 import Environment, select_autoescape, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader
 from help.support.abspaths import html_styles, jinja_templs
-from page_making.finished_structures.navigation_bar_F import navbar_f
+from webreminder_app.pages.navigation_bar import navbar_f
 from pathlib import Path
 
 
