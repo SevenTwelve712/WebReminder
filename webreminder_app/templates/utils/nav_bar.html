@@ -10,6 +10,7 @@
 		<ul class="dropdown">
 			{% for elem in header_block.get_pages() %}
 			{% if elem.has_link() %}
+			{{ elem.link | pprint }}
 			<li><a href="{{ url_for(elem.link) }}">{{ elem.name }}</a></li>
 			{% else %}
 			<li>{{ elem.name }}</li>

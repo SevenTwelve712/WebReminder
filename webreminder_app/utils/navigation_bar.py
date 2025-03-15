@@ -16,10 +16,11 @@ class NavElem:
         Если False, то ссылки никуда не будет. Если строка, то ссылка будет вычисляться по этому параметру
         """
         self.name = name
-        self.link = link
+        self.has_link_ = bool(link)
+        self.link = name
 
     def has_link(self):
-        return bool(self.link)
+        return self.has_link_
 
     def __repr__(self):
         return f"NavElem(name: {self.name}, path: {str(self.path)}"

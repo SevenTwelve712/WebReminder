@@ -3,8 +3,7 @@ from webreminder_app.pages.navigation_bar import navbar_f
 from typing import Union
 from pathlib import Path
 from help.support.abspaths import html_styles, jinja_templs
-from jinja2 import Environment, FileSystemLoader, select_autoescape
-
+from jinja2 import Environment, PackageLoader
 
 class LibraryPage:
     def __init__(self, library: str, extra_info: Union[ContentTable, bool], content: ContentTable):
@@ -18,7 +17,8 @@ class LibraryPage:
         self.name = library
         self.content = content
         self.extra = extra_info
-        self.styles = [html_styles + style for style in ('/libraries.css', '\\navigation.css')]
+        # self.styles = [html_styles + style for style in ('/libraries.css', '/navigation.css')]
+        self.styles =  ('/libraries.css', '/navigation.css')
 
         if extra_info:
             # Такой ход конем необходим, тк таблица должна быть отделена от нав окна.
@@ -26,10 +26,10 @@ class LibraryPage:
             self.extra.add_styles(['margin-top: 40px'])
 
     def render(self):
-        env = Environment(loader=FileSystemLoader(jinja_templs), autoescape=False)
+        env = Environment(loader=PackageLoader('webreminder_app', "templates/utils"), autoescape=False)
         env.trim_blocks = True
         env.lstrip_blocks = True
-        template = env.get_template('utils/library.html')
+        template = env.get_template('library.html')
         return template.render(
             library=self,
             navbar=navbar_f
