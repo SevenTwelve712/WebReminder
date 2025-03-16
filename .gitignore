@@ -4,3 +4,4 @@ test/
 setup.cfg
 .idea/
 html_elems/static_pages/
+tests/

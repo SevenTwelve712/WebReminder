@@ -79,3 +79,7 @@ def attributes():
 @app.route('/instructions/jinja')
 def jinja_inst():
     return render_template('utils/instruction.html', instruction=jinja_F.page, navbar=navbar, **jinja_F.kwargs)
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=7127)
