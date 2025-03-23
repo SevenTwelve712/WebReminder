@@ -82,4 +82,4 @@ def jinja_inst():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=7127)
+    app.run(host='127.1.1.1', port=7127)

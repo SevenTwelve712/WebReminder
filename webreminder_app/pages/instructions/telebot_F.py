@@ -1,8 +1,5 @@
-from help.support.abspaths import static_pages
-from pathlib import Path
 from webreminder_app.utils.instruction import Instruction
 from webreminder_app.utils.chapter_list import define_from_html
-from help.support.abspaths import jinja_templs
 
 code1 = """from telebot import *
 
