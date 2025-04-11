@@ -1,6 +1,6 @@
 from typing import Union
 from jinja2 import FileSystemLoader, Environment
-from help.support.abspaths import jinja_templs
+from webreminder_app.configs import LocalDirs
 
 
 class ContentTableLine:
@@ -60,7 +60,7 @@ class ContentTable:
         :return: A html line, where the table is written
         """
         env = Environment(
-            loader=FileSystemLoader(jinja_templs),
+            loader=FileSystemLoader(LocalDirs.jinja_templates + '/utils'),
             autoescape=False
         )
         env.trim_blocks = True

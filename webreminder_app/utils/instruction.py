@@ -1,5 +1,5 @@
 from jinja2 import Environment, FileSystemLoader
-from help.support.abspaths import html_styles, jinja_templs
+from webreminder_app.configs import LocalDirs
 from webreminder_app.pages.navigation_bar import navbar_f
 from pathlib import Path
 
@@ -21,7 +21,7 @@ class Instruction:
 
     def render(self):
         env = Environment(
-            loader=FileSystemLoader(jinja_templs),
+            loader=FileSystemLoader(LocalDirs.jinja_templates + '/utils'),
             autoescape=False
         )
         env.trim_blocks = True

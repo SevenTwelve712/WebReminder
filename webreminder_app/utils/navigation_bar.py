@@ -1,10 +1,8 @@
 #  Документацию по классам навигационного окна смотри по
 #  https://www.figma.com/board/YSDgLQc41v3kPttlXHCh8b/NavBar?t=x0156PuqLPOEFyyH-6
 from typing import Union
-from pathlib import Path
 from jinja2 import Environment, select_autoescape, FileSystemLoader
-from os.path import abspath
-from help.support.abspaths import jinja_templs
+from webreminder_app.configs import LocalDirs
 
 
 class NavElem:
@@ -82,7 +80,7 @@ class NavigationBar:
     def render(self, tabs: int) -> str:
         env = Environment(
             autoescape=select_autoescape('html'),
-            loader=FileSystemLoader(jinja_templs)
+            loader=FileSystemLoader(LocalDirs.jinja_templates + '/utils')
         )
         env.trim_blocks = True
         env.lstrip_blocks = True

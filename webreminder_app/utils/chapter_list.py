@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
-from jinja2 import Environment, PackageLoader
-from help.support.abspaths import start
+from webreminder_app.configs import LocalDirs
 
 
 class Header:
@@ -35,7 +34,7 @@ def define_from_html(path: str):
     :param path: Путь к html документу
     :return: Список заголовков меньшего уровня. У каждого из них могут быть потомки низшего уровня
     """
-    with open('templates/finished/' + path, encoding='utf_8') as f:
+    with open(LocalDirs.jinja_templates + '/finished/' + path, encoding='utf_8') as f:
         html = f.read()
     soup = BeautifulSoup(html, 'html.parser')
 
