@@ -1,0 +1,15 @@
+{% from 'utils/code_block.html' import code_block %}
+{% from 'utils/content_table.html' import table %}
+<p>apt-file — утилита командной строки для поиска пакетов по файлам, содержащимся в пакетах apt</p>
+<h1 id="syntaxis">Синтаксис</h1>
+<code>apt-file <i>option</i> <i>command</i> <i>target</i></code>
+<p>В качестве target могут выступать, например, пакет или файл</p>
+<p>По факту, все сводится к этим двум командам:</p>
+<code>apt-file <i>options</i> search pattern</code>
+<code>apt-file <i>options</i> show <i>package</i></code>
+<h1 id="commands">Команды</h1>
+<p>NB: тут не все команды. Для подробностей смотри man</p>
+{{ table(commands) }}
+<h1 id="options">Опции</h1>
+<p>NB: тут не все опции. Для подробностей смотри man</p>
+{{ table(options) }}
