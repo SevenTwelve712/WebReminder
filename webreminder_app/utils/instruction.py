@@ -3,7 +3,7 @@ class Instruction:
         """
         Класс страницы инструкции
         :param name: Название инструкции
-        :param content: Путь до jinja-шаблона инструкции относительно директории jinja_templates
+        :param content: Путь до jinja-шаблона инструкции относительно директории jinja_templates/finished
         :param content_render_kwargs: Аргументы, необходимые для генерации шаблона контента
         :param chapter_list: {заголовок: его id}
         """

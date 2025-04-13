@@ -31,7 +31,7 @@ class ChapterList:
 def define_from_html(path: str):
     """
     Выделяет из html документа заголовки и формирует их структуру
-    :param path: Путь к html документу
+    :param path: Путь к html документу относительно templates/finished
     :return: Список заголовков меньшего уровня. У каждого из них могут быть потомки низшего уровня
     """
     with open(LocalDirs.jinja_templates + '/finished/' + path, encoding='utf_8') as f:
