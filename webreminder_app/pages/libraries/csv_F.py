@@ -1,7 +1,5 @@
 from webreminder_app.utils.content_table import *
 from webreminder_app.utils.libraries_render import LibraryPage
-from pathlib import Path
-from help.support.abspaths import static_pages
 
 extra = ContentTable(
     False,

@@ -1,6 +1,7 @@
 from markupsafe import escape
-from webreminder_app.utils.instruction import Instruction
+
 from webreminder_app.utils.chapter_list import define_from_html
+from webreminder_app.utils.instruction import Instruction
 
 html_jinja_example = escape("""<!-- navigation.html -->
 <!DOCTYPE html>

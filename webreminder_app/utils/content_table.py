@@ -1,6 +1,4 @@
 from typing import Union
-from jinja2 import FileSystemLoader, Environment
-from webreminder_app.configs import LocalDirs
 
 
 class ContentTableLine:

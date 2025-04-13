@@ -1,5 +1,5 @@
-from webreminder_app.utils.instruction import Instruction
 from webreminder_app.utils.content_table import *
+from webreminder_app.utils.instruction import Instruction
 from webreminder_app.utils.unordered_list import UnorderedList
 
 content = ContentTable(

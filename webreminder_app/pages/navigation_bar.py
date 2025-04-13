@@ -1,7 +1,4 @@
 from webreminder_app.utils.navigation_bar import *
-from os.path import abspath
-from help.support.abspaths import static_pages
-
 
 navbar_f = NavigationBar(
     [

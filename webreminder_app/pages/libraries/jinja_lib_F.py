@@ -1,7 +1,5 @@
 from webreminder_app.utils.content_table import *
 from webreminder_app.utils.libraries_render import LibraryPage
-from help.support.abspaths import static_pages
-from pathlib import Path
 
 content = ContentTable(
     'jinja2',

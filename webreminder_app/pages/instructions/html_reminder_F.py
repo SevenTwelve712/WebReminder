@@ -1,8 +1,9 @@
-from webreminder_app.utils.content_table import ContentTable, ContentTableLine
-from webreminder_app.utils.unordered_list import UnorderedList
-from webreminder_app.utils.instruction import Instruction
 from markupsafe import escape
+
 from webreminder_app.utils.chapter_list import define_from_html
+from webreminder_app.utils.content_table import ContentTable, ContentTableLine
+from webreminder_app.utils.instruction import Instruction
+from webreminder_app.utils.unordered_list import UnorderedList
 
 div_table = ContentTable(
     False,

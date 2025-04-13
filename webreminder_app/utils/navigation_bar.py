@@ -1,7 +1,9 @@
 #  Документацию по классам навигационного окна смотри по
 #  https://www.figma.com/board/YSDgLQc41v3kPttlXHCh8b/NavBar?t=x0156PuqLPOEFyyH-6
 from typing import Union
+
 from jinja2 import Environment, select_autoescape, FileSystemLoader
+
 from webreminder_app.configs import LocalDirs
 
 

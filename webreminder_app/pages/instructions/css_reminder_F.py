@@ -1,6 +1,6 @@
-from webreminder_app.utils.instruction import Instruction
-from webreminder_app.utils.content_table import *
 from webreminder_app.utils.chapter_list import define_from_html
+from webreminder_app.utils.content_table import *
+from webreminder_app.utils.instruction import Instruction
 
 useful = ContentTable(
     False,

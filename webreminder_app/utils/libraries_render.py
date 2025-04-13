@@ -1,5 +1,6 @@
-from webreminder_app.utils.content_table import ContentTable
 from typing import Union
+
+from webreminder_app.utils.content_table import ContentTable
 
 
 class LibraryPage:

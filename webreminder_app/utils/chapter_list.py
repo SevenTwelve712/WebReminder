@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+
 from webreminder_app.configs import LocalDirs
 
 
