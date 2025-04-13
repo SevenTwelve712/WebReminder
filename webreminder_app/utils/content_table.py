@@ -55,37 +55,8 @@ class ContentTable:
         """
         return self.lines[-1]
 
-    def render(self, tabs: int) -> str:
-        """
-        :return: A html line, where the table is written
-        """
-        env = Environment(
-            loader=FileSystemLoader(LocalDirs.jinja_templates + '/utils'),
-            autoescape=False
-        )
-        env.trim_blocks = True
-        env.lstrip_blocks = True
-        template = env.get_template('content_table.html')
-        rendered = template.render(table=self)
-        return '\n'.join(['\t' * tabs + elem for elem in rendered.split('\n')])
-
     def add_styles(self, styles: list[str]):
         """
         В качестве строк списка нужно передавать строку вида "свойство: значение"
         """
         self.styles += styles
-
-
-if __name__ == '__main__':
-    header = [
-        'func', 'what it does'
-    ]
-    content = [
-        ContentTableLine('builtins', 'subhead'),
-        ContentTableLine(['print', 'print elem'], 'usual'),
-        ContentTableLine(['sorted', 'sorts an iterable'], 'usual'),
-        ContentTableLine('end', 'subhead')
-    ]
-    table = ContentTable(False, header, content)
-    table.add_styles(['margin-top: 60px', 'margin-bottom: 60px'])
-    print(table.render(tabs=3))

@@ -1,9 +1,3 @@
-from jinja2 import Environment, FileSystemLoader
-from webreminder_app.configs import LocalDirs
-from webreminder_app.pages.navigation_bar import navbar_f
-from pathlib import Path
-
-
 class Instruction:
     def __init__(self, name: str, content: str, content_render_kwargs: dict, chapter_list: dict[str, str]):
         """
@@ -18,28 +12,3 @@ class Instruction:
         self.content_kwargs = content_render_kwargs
         self.chapter_list = chapter_list
         self.styles = ('/code_block.css', '/instructions.css', '/libraries.css', '/navigation.css')
-
-    def render(self):
-        env = Environment(
-            loader=FileSystemLoader(LocalDirs.jinja_templates + '/utils'),
-            autoescape=False
-        )
-        env.trim_blocks = True
-        env.lstrip_blocks = True
-        template = env.get_template('instruction.html')
-        return template.render(
-            instruction=self,
-            navbar=navbar_f,
-            **self.content_kwargs
-        )
-
-    def make_static(self, path_to_file: Path):
-        """
-        Сохраняет сгенерированный документ в html файле
-        :param path_to_file: Путь к файлу
-        """
-        if path_to_file.parts[-2] != 'static_pages':
-            raise ValueError('all rendered html pages must be in html_elems/static_pages')
-
-        with open(path_to_file, 'w', encoding='utf-8') as f:
-            f.write(self.render())
