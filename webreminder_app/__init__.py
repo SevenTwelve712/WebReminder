@@ -1,14 +1,14 @@
 from flask import Flask, render_template
 from webreminder_app.pages.libraries import json_F, builtins_F, csv_F, functools_F, itertools_F, jinja_lib_F, math_F, os_F, random_F
 from webreminder_app.pages.instructions import telebot_F, css_reminder_F, html_reminder_F, attributes_F, jinja_F
-from webreminder_app.pages.linux.packages.apt import apt
+from webreminder_app.pages.linux.packages.apt import apt_F
 from webreminder_app.pages.navigation_bar import navbar_f
 from flask import Flask, render_template
 
 from webreminder_app.pages.instructions import telebot_F, css_reminder_F, html_reminder_F, attributes_F, jinja_F
 from webreminder_app.pages.libraries import json_F, builtins_F, csv_F, functools_F, itertools_F, jinja_lib_F, math_F, \
     os_F, random_F
-from webreminder_app.pages.linux.packages.apt import apt
+from webreminder_app.pages.linux.packages.apt import apt_F
 from webreminder_app.pages.navigation_bar import navbar_f
 
 app = Flask(__name__)
@@ -89,6 +89,7 @@ def attributes():
 def jinja_inst():
     return render_template('utils/instruction.html', instruction=jinja_F.page, navbar=navbar, **jinja_F.kwargs)
 
-@app.route('/linux/packages/apt')
+
+@app.route('/linux/packages/apt/apt')
 def apt():
-    return render_template('utils/instruction.html', instruction=apt.page, navbar=navbar, **apt.kwargs)
+    return render_template('utils/instruction.html', instruction=apt_F.page, navbar=navbar, **apt_F.kwargs)

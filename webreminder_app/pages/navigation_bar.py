@@ -19,8 +19,8 @@ navbar_f = NavigationBar(
             NavElem('css_reminder'),
             NavElem('html_reminder'),
             NavElem('attributes'),
-            NavElem('jinja2', 'jinja_inst')
+            NavElem('jinja2', 'jinja_inst'),
+            NavElem('apt')
         ])
     ]
 )
-# TODO: дописать navbar
