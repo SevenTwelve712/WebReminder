@@ -93,3 +93,9 @@ code{
     background: #66CDAA;
     border-radius: 5px;
 }
+
+img{
+    border-radius: 8px;
+    width: 50%;
+    margin-left: 25%;
+}
