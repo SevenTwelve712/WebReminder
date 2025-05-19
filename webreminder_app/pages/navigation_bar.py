@@ -21,7 +21,9 @@ navbar_f = NavigationBar(
             NavElem('attributes'),
             NavElem('jinja2', 'jinja_inst'),
             NavElem('apt'),
-            NavElem('apt-file', 'apt_file')
+            NavElem('apt-file', 'apt_file'),
+            NavElem('ssh'),
+            NavElem('nginx'),
         ])
     ]
 )
