@@ -14,20 +14,30 @@
 {{ code_block(block_dir) }}
 <p>В файле обязательно должны присутствовать блочные директивы events, http, директива http должна содержать
     хотя бы одну блочную директиву server, которая должна содержать блочную директиву location</p>
+<p>Минимальная рабочая конфигурация:</p>
+{{ code_block(mini) }}
 <h2 id="usual">Настройки секций</h2>
 <h3 id="main">Главная секция</h3>
 <p>В nginx.conf есть главная секция, она пишется без скобок. В ней настраиваются глобальные опции</p>
 {{ table(main) }}
+<p>Пример:</p>
+{{ code_block(main_ex) }}
 <h3 id="events">events</h3>
 <p>В секции events настраивается реакция nginx на входящие подключения</p>
 {{ table(events) }}
+<p>Пример:</p>
+{{ code_block(events_ex) }}
 <h3 id ="http">http</h3>
 <p>В секции http настраиваются сами web сервера</p>
 {{ table(http) }}
+<p>Пример:</p>
+{{ code_block(http_ex) }}
 <h3 id="server">server</h3>
 <p>В секции http настраивается секция server. Она отвечает за один конкретный веб-сервер. Можно сделать несколько
 серверов, главное, чтобы они слушали разные адреса</p>
 {{ table(server) }}
+<p>Пример:</p>
+{{ code_block(server_ex) }}
 <h3 id="location">location</h3>
 <p>Секция location отвечает за распределение контента. Она должна располагаться внутри секции server. Внутри одного server быть
 несколько секция location.</p>
@@ -43,7 +53,55 @@
 свалятся сюда.</p>
 <p>Директивы:</p>
 {{ table(location) }}
+<p>Пример:</p>
+{{ code_block(location_ex1) }}
+<h1 id="proxy">Настройка nginx в качестве обратного прокси</h1>
+<p>Для этого в соответствующей директиве location надо указать директиву proxy_pass, а также изменить html заголовки</p>
+<p>Нужные нам директивы:</p>
+{{ table(proxy) }}
+<p>Пример:</p>
+{{ code_block(proxy_ex) }}
+<h2 id="change_http_headers">Изменяем http заголовки</h2>
+<ul>
+    <li><code>proxy_set_header X-forwarded-For $proxy_add_x_forwarded_for;</code>: передаем ip адреса прокси серверов,
+        через которые шел запрос, чтобы конечный сервер знал, кто инициировал запрос</li>
+    <li><code>proxy_set_header X-Forwarded-Proto $scheme;</code>: передаем протокол, который использовался для подключения к прокси</li>
+    <li><code>proxy_set_header X-Forwarded-Host $host;</code>: передаем хост, который клиент указал при запросе</li>
+    <li><code>proxy_set_header X-Forwarded-Prefix <i>необходимый префикс</i>;</code>: префикс пути, который был обработан прокси (типа что написано в location).
+        Помогает правильно выстраивать ссылки</li>
+    <li><code>proxy_set_header X-Real-IP $remote_addr;</code>: передаем реальный ip клиента</li>
+    <li><code>proxy_set_header X-Forwarded-Port $server_port;</code>: передаем порт, через который пришел клиент</li>
+</ul>
+<p>Не обязательно изменять все заголовки, обычно стоит изменить первые 4, а остальные при надобности</p>
+<h2 id="proxy_uti">Про проксируемый uri</h2>
+<p>Если мы в директиве <code>proxy_pass</code> укажем просто адрес, то uri запроса сохранится. Однако, если мы укажем новый uri, то uri
+ из location заменится на него. Поясню на примерах:</p>
+<p>Пусть есть такая конфигурация (рассматриваю только секцию http, все остальное по дефолту + не пишу proxy_set_header чтобы не захламлять пример)</p>
+{{ code_block(proxy_uri) }}
+<ul>
+    <li>Запрос <code>http://127.0.0.1:5001/usual_uri/smth.html</code> отправится на сервер, слушающий по порту 5002 с uri <code>/usual_uri/smth.html</code>.
+        Вернется файл <code>/home/seventwelve712/www/usual_uri/smth.html</code></li>
+    <li>Запрос <code>http://127.0.0.1:5001/without_backslash/smth.html</code> отправится на сервер, слушающий по порту 5002 с uri <code>/smth.html</code>.
+        Вернется файл <code>/home/seventwelve712/www/smth.html</code></li>
+    <li>Запрос <code>http://127.0.0.1:5001/some/prefixes/etc/smth.html</code> отправится на сервер, слушающий по порту 5002 с uri <code>/main_prefix/smth.html</code>.
+        Вернется файл <code>/home/seventwelve712/www/main_prefix/smth.html</code></li>
+    <li>Запрос <code>http://127.0.0.1:5001/some/prefixes/etc/another_prefix/smth.html</code> отправится на сервер, слушающий по порту 5002 с uri <code>/main_prefix/another_prefix/smth.html</code>.
+        Вернется файл <code>/home/seventwelve712/www/main_prefix/another_prefix/smth.html</code></li>
+</ul>
+<p>Таким образом, если мы хотим "обнулить" uri, нужно указать бэкслеш. Если хотим оставить, как есть, просто пишем адрес. Ну а если хотим тонкую настройку, настраиваем перенаправление.</p>
+<h1 id="tls">Настраиваем защищенное соединение</h1>
+<p>Для защищенного соединения прописываем следующие директивы в контексте server</p>
+{{ table(tls) }}
+<p>Пример:</p>
+{{ code_block(tls_ex) }}
+<h1 id="status">Настраиваем статусную страницу</h1>
+<p>Для этого придется создать следующую директиву location:</p>
+{{ code_block(location_status) }}
+<p>Мы настроили статусную страницу, доступную по uri /nginx_status, затем мы включили саму статусную страницу (stub_status on), отключили логи, чтобы не захламлять их,
+разрешили доступ с локалхоста и запретили со всех остальных адресов</p>
 <h1 id="end">Конец</h1>
+<p>Итоговая навороченная конфигурация (используется для работы этого сайта):</p>
+{{ code_block(total) }}
 <p>Вот в принципе и все, это простая настройка nginx сервера. Полезные статьи, которые можно почитать:</p>
 <ul>
     <li>Тут пока нихуя нет, я еще не дописал статью, это заготовка</li>
