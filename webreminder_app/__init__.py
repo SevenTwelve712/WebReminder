@@ -8,7 +8,7 @@ from webreminder_app.pages.instructions import telebot_F, css_reminder_F, html_r
 from webreminder_app.pages.libraries import json_F, builtins_F, csv_F, functools_F, itertools_F, jinja_lib_F, math_F, \
     os_F, random_F
 from webreminder_app.pages.linux.packages.apt import apt_F
-from webreminder_app.pages.net import ssh_F, nginx_F
+from webreminder_app.pages.net import ssh_F, nginx_F, acme_sh_F
 from webreminder_app.pages.navigation_bar import navbar_f
 
 app = Flask(__name__)
@@ -109,3 +109,7 @@ def ssh():
 def nginx():
     return render_template('utils/instruction.html', instruction=nginx_F.page, navbar=navbar, **nginx_F.kwargs)
 
+
+@app.route('/net/acme.sh')
+def acme_sh():
+    return render_template('utils/instruction.html', instruction=acme_sh_F.page, navbar=navbar)

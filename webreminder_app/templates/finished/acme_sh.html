@@ -1,0 +1,26 @@
+{% from 'utils/code_block.html' import code_block %}
+{% from 'utils/content_table.html' import table %}
+<p>acme.sh — быстрый и удобный инструмент для выпуска и установки tls-сертификатов</p>
+<h1 id="install">Установка</h1>
+<p>Выполняем: <code>curl https://get.acme.sh | sh -s email=my@example.com</code></p>
+<p>Готово. Теперь у нас есть директория .acme.sh в нашей домашней директории пользователя, созданы alias acme.sh=~/.acme.sh/acme.sh,
++ создана ежедневный процесс, которая будет обновлять сертификаты, если надо</p>
+<p><b>NB: Не забудь перезапустить терминал после установки acme.sh</b></p>
+<h1 id="issue">Выпуск</h1>
+<p>Для того, чтобы выпустить сертификат, выполняем:</p>
+<p><code>acme.sh --issue -d your_domain.com -w /home/wwwroot/example.com</code></p>
+<p>Можно указать несколько доменов: <code>acme.sh --issue -d example.com -d www.example.com -d cp.example.com -w /home/wwwroot/example.com</code></p>
+<p>Объяснение первой команды:</p>
+<ol>
+    <li>Опция -d указывает на домен, для которого будет выпущен сертификат. В данном примере он будет выпущен для your_domain.com</li>
+    <li>Опция -w указывает, в какой директории будут помещены временные файлы, для проверки серверами Lets Encrypt на подлинность домена.<br>Как это работает:
+    изначально Lets Encrypt не знает, принадлежит ли нам домен, указанный при выпуске сертификата, или мы мошенники, которые пытаются создать фишинговый сайт.
+    Указывая параметр -w мы указываем директорию, в которой acme.sh создаст временные файлы для проверки подлинности домена. Lets Encrypt обратится по адресу
+     http://your_domain.com/path_that_we_choose_in_-w и проверит, действительно ли там лежит то, что надо. Если да, то домен наш, и Lets Encrypt выпускает сертификаты,
+    обычно в директорию <code>~/.acme.sh/your_domain.com/</code>, где они хранятся в виде файлов.</li>
+</ol>
+<h1 id="install-cert">Установка сертификатов</h1>
+<p>Нельзя просто скопировать файлы сертификатов, это оч херовая идея, так как acme.sh не будет их обновлять. Для установки сертификатов нужно
+выполнить команду:</p>
+<p><code>acme.sh --install-cert -d example.com --cert-file /path/to/certfile/cert.pem --key-file /path/to/keyfile/key.pem --fullchain-file /path/to/fullchain/certfile/fullchain.pem</code></p>
+<p>Теперь необходимо указать настройки ssl в вебсервере, который ты используешь, и все будет готово.</p>
