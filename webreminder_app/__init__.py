@@ -10,6 +10,7 @@ from webreminder_app.pages.libraries import json_F, builtins_F, csv_F, functools
 from webreminder_app.pages.linux.packages.apt import apt_F
 from webreminder_app.pages.net import ssh_F, nginx_F, acme_sh_F
 from webreminder_app.pages.navigation_bar import navbar_f
+from webreminder_app.pages.qt import qt_main_F, qt_placement_F
 
 app = Flask(__name__)
 navbar = navbar_f
@@ -113,3 +114,13 @@ def nginx():
 @app.route('/net/acme.sh')
 def acme_sh():
     return render_template('utils/instruction.html', instruction=acme_sh_F.page, navbar=navbar)
+
+
+@app.route('/qt/main')
+def qt_main():
+    return render_template('utils/instruction.html', instruction=qt_main_F.instruction, navbar=navbar, **qt_main_F.kwargs)
+
+
+@app.route('/qt/placement')
+def qt_placement():
+    return render_template('utils/instruction.html', instruction=qt_placement_F.instruction, navbar=navbar, **qt_placement_F.kwargs)
