@@ -1,0 +1,24 @@
+{% from 'utils/code_block.html' import code_block %}
+
+<h1 id="cond_expr">Условные выражения</h1>
+<h2 id="if">if</h2>
+{{code_block(if_) }}
+<h2 id="switch">Switch</h2>
+{{ code_block(switch) }}
+<p>Не забываем указывать break, иначе после выполнения case выполнятся все остальные</p>
+<p>Также есть укороченная версия: </p>
+{{ code_block(simple_switch) }}
+<h2 id="ternary">Тернарная операция</h2>
+{{ code_block(ternary) }}
+<p>var присвоится <code>then</code> если <code>cond == True</code>, в ином случае var присвоится <code>else</code></p>
+
+<h1 id="loops">Циклы</h1>
+<h2 id="for">For</h2>
+{{ code_block(for_) }}
+<h2 id="while">While</h2>
+{{ code_block(while_) }}
+<h2 id="do_while">do while</h2>
+{{ code_block(do_while) }}
+<p>То же самое, что и while, но выполнится хотя бы 1 раз</p>
+<h2 id="exits">Операторы выхода</h2>
+<p><code>continue</code> и <code>break</code>, первый завершает текущую итерацию цикла и переходит к следующей, второй выходит из цикла.</p>

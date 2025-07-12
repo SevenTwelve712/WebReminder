@@ -9,8 +9,9 @@ from webreminder_app.pages.libraries import json_F, builtins_F, csv_F, functools
     os_F, random_F
 from webreminder_app.pages.linux.packages.apt import apt_F
 from webreminder_app.pages.net import ssh_F, nginx_F, acme_sh_F
+from webreminder_app.pages.java import java_main_F, java_variables_F, java_cond_expr_loops_F
 from webreminder_app.pages.navigation_bar import navbar_f
-from webreminder_app.pages.qt import qt_main_F, qt_placement_F
+from webreminder_app.pages.qt import qt_main_F, qt_placement_F, qt_animations_F
 
 app = Flask(__name__)
 navbar = navbar_f
@@ -124,3 +125,21 @@ def qt_main():
 @app.route('/qt/placement')
 def qt_placement():
     return render_template('utils/instruction.html', instruction=qt_placement_F.instruction, navbar=navbar, **qt_placement_F.kwargs)
+
+
+@app.route('/qt/animations')
+def qt_animations():
+    return render_template('utils/instruction.html', instruction=qt_animations_F.instruction, navbar=navbar, **qt_animations_F.kwargs)
+
+
+@app.route('/java/main')
+def java_main():
+    return render_template('utils/instruction.html', instruction=java_main_F.instruction, navbar=navbar, **java_main_F.kwargs)
+
+@app.route('/java/variables')
+def java_variables():
+    return render_template('utils/instruction.html', instruction=java_variables_F.instruction, navbar=navbar, **java_variables_F.kwargs)
+
+@app.route('/java/cond_expr_loops')
+def java_cond_expr_loops():
+    return render_template('utils/instruction.html', instruction=java_cond_expr_loops_F.instruction, navbar=navbar, **java_cond_expr_loops_F.kwargs)
