@@ -45,6 +45,8 @@ do_while = """do {
 }
 while (cond);"""
 
+for_iter = """for (var elem : alam_arr) { do smth; }"""
+
 chapter_list = define_from_html("java_cond_expr_loops.html")
 kwargs = {
     'if_': if_,
@@ -53,7 +55,8 @@ kwargs = {
     'ternary': ternary,
     'for_': for_,
     'while_': while_,
-    'do_while': do_while
+    'do_while': do_while,
+    'for_iter': for_iter
 }
 instruction = Instruction(
     'Условные выражения и циклы',

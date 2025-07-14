@@ -9,7 +9,8 @@ from webreminder_app.pages.libraries import json_F, builtins_F, csv_F, functools
     os_F, random_F
 from webreminder_app.pages.linux.packages.apt import apt_F
 from webreminder_app.pages.net import ssh_F, nginx_F, acme_sh_F
-from webreminder_app.pages.java import java_main_F, java_variables_F, java_cond_expr_loops_F
+from webreminder_app.pages.java import java_main_F, java_variables_F, java_cond_expr_loops_F, java_oop_F, \
+    java_data_storage_F
 from webreminder_app.pages.navigation_bar import navbar_f
 from webreminder_app.pages.qt import qt_main_F, qt_placement_F, qt_animations_F
 
@@ -136,10 +137,21 @@ def qt_animations():
 def java_main():
     return render_template('utils/instruction.html', instruction=java_main_F.instruction, navbar=navbar, **java_main_F.kwargs)
 
+
 @app.route('/java/variables')
 def java_variables():
     return render_template('utils/instruction.html', instruction=java_variables_F.instruction, navbar=navbar, **java_variables_F.kwargs)
 
+
 @app.route('/java/cond_expr_loops')
 def java_cond_expr_loops():
     return render_template('utils/instruction.html', instruction=java_cond_expr_loops_F.instruction, navbar=navbar, **java_cond_expr_loops_F.kwargs)
+
+@app.route('/java/oop')
+def java_oop():
+    return render_template('utils/instruction.html', instruction=java_oop_F.instruction, navbar=navbar, **java_oop_F.kwargs)
+
+
+@app.route('/java/data_storage')
+def java_data_storage():
+    return render_template('utils/instruction.html', instruction=java_data_storage_F.instruction, navbar=navbar, **java_data_storage_F.kwargs)
