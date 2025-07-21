@@ -10,7 +10,7 @@ from webreminder_app.pages.libraries import json_F, builtins_F, csv_F, functools
 from webreminder_app.pages.linux.packages.apt import apt_F
 from webreminder_app.pages.net import ssh_F, nginx_F, acme_sh_F
 from webreminder_app.pages.java import java_main_F, java_variables_F, java_cond_expr_loops_F, java_oop_F, \
-    java_data_storage_F, java_exceptions_F, java_streams_F
+    java_data_storage_F, java_exceptions_F, java_streams_F, java_documentation_F
 from webreminder_app.pages.navigation_bar import navbar_f
 from webreminder_app.pages.qt import qt_main_F, qt_placement_F, qt_animations_F
 
@@ -165,3 +165,8 @@ def java_exceptions():
 @app.route('/java/streams')
 def java_streams():
     return render_template('utils/instruction.html', instruction=java_streams_F.instruction, navbar=navbar, **java_streams_F.kwargs)
+
+
+@app.route('/java/documentation')
+def java_documentation():
+    return render_template('utils/instruction.html', instruction=java_documentation_F.instruction, navbar=navbar, **java_documentation_F.kwargs)

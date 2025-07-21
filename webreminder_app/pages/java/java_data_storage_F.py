@@ -242,6 +242,97 @@ MapMethods = ContentTable(
 
 HashMap = escape("Map<Integer, String> states = new HashMap<Integer, String>();")
 
+ArrayDequeMethods = ContentTable(
+    False,
+    ['Метод', 'Что делает'],
+    [
+        ContentTableLine(
+            [
+                'void addFirst(E e)',
+                'Добавляет элемент в начало'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'void addLast(E e)',
+                'Добавляет элемент в конец'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'boolean offerFirst(E e)',
+                'Добавляет элемент в начало, если удалось, возвращает true, иначе false'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'boolean offerLast(E e)',
+                'Добавляет элемент в конец, если удалось, возвращает true, иначе false'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'E getFirst()',
+                'Возвращает первый элемент, если коллекция пуста, генерирует NoSuchElementException'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'E getLast()',
+                'Возвращает последний элемент, если коллекция пуста, генерирует NoSuchElementException'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'E peekFirst()',
+                'Возвращает первый элемент (или null)'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'E peekLast()',
+                'Возвращает последний элемент (или null)'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'E pollFirst()',
+                'Возвращает и удаляет первый элемент, если коллекция пуста, возвращает null'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'E pollLast()',
+                'Возвращает и удаляет последний элемент, если коллекция пуста, возвращает null'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'E pop()',
+                'Возвращает и удаляет первый элемент, если коллекция пуста, вызывает исключение NoSuchElementException'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'void push(E e)',
+                'Добавляет элемент в начало'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'E removeFirst()',
+                'Возвращает и удаляет первый элемент, если коллекция пуста, генерирует исключение NoSuchElementException'
+            ]
+        ),
+        ContentTableLine(
+            [
+                'E removeLast()',
+                'Возвращает и удаляет последний элемент, если коллекция пуста, генерирует исключение NoSuchElementException'
+            ]
+        )
+    ]
+)
+
 chapter_list = define_from_html("java_data_storage.html")
 kwargs = {
     'arrays': arrays,
@@ -250,7 +341,8 @@ kwargs = {
     'HashSet': HashSet,
     'CollectionMethods': CollectionMethods,
     'MapMethods': MapMethods,
-    'HashMap': HashMap
+    'HashMap': HashMap,
+    'ArrayDequeMethods': ArrayDequeMethods
 }
 
 instruction = Instruction(

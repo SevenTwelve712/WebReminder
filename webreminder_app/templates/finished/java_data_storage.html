@@ -37,11 +37,25 @@
 {{ code_block(arrayList) }}
 <p>кроме того можно применять еще конструкторы:</p>
 <ul>
-    <li><code>ArrayList()</code> создаст пустой список</li>
-    <li><code>ArrayList(Collection &lt;? extends E&gt; col)</code> создаст список, в который будут добавлены все элементы колекции</li>
+    <li><code>ArrayList()</code>: создаст пустой список</li>
+    <li><code>ArrayList(Collection &lt;? extends E&gt; col)</code>: создаст список, в который будут добавлены все элементы коллекции</li>
+    <li><code>ArrayList(int capacity)</code>: создает список с начальной вместимостью capacity</li>
 </ul>
 <p>Некоторые его полезные методы (помимо дефолтных)</p>
 {{ table(arrayListMethods) }}
+
+<h1 id="ArrayQueue">ArrayDeque</h1>
+<p>Является двунаправленной очередью, реализует интерфейс Deque</p>
+<p>Конструкторы:</p>
+<ul>
+    <li><code>ArrayDeque()</code>: создает пустую очередь</li>
+    <li><code>ArrayDeque(Collection &lt;? extends E&gt; col)</code>: создаст очередь, в который будут добавлены все элементы коллекции</li>
+    <li><code>ArrayDeque(int capacity)</code>: создает очередь с начальной вместимостью capacity</li>
+</ul>
+<p>Полезные методы:</p>
+{{ table(ArrayDequeMethods) }}
+<p>Когда работаем как с очередью (FIFO) используем offer() и poll().</p>
+<p>Когда работаем как со стеком (LIFO) используем push() и pop()</p>
 
 <h1 id="hashSet">HashSet</h1>
 <p>Представляет собой неупорядоченное множество уникальных элементов, основанное на хэш-таблице</p>
@@ -56,3 +70,10 @@
 <p>Некоторые методы интерфейса Map:</p>
 {{ table(MapMethods) }}
 
+<h1 id="Iterators">Итераторы</h1>
+<p>У класса <code>Collection</code> есть метод Iterator&lt;E&gt; iterator(). Он возвращает объект итератора, который умеет:</p>
+<ul>
+    <li><code>.next()</code>: возвращает следующий элемент или генерит NoSuchElementException</li>
+    <li><code>.hasNext()</code>: возвращает true/false (есть ли следующий элемент или нет)</li>
+    <li><code>.remove()</code>: удаляет текущий элемент из коллекции, полученный последним вызовом next()</li>
+</ul>

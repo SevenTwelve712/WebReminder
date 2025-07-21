@@ -57,13 +57,78 @@ catch (IOException e){
     System.out.println(e.getMessage());
 }"""
 
+FISConstr = """FileInputStream(String fileName) throws FileNotFoundException
+FileInputStream(File file) throws FileNotFoundException"""
+
+baseStreamsMethods = ContentTable(
+    False,
+    ['Метод', 'Что делает'],
+    [
+        ContentTableLine('InputStream', 'subhead'),
+        ContentTableLine(['int available()', 'Возвращает количество байтов, доступных для чтения в потоке']),
+        ContentTableLine(['void close()', 'Закрывает поток']),
+        ContentTableLine(['int read()', 'Возвращает целочисленное представление следующего байта в потоке или -1 при EOF']),
+        ContentTableLine(['void skip(long num)', 'Пропускает number байтов при чтении']),
+
+        ContentTableLine('OutputStream', 'subhead'),
+        ContentTableLine(['void close()', 'Закрывает поток']),
+        ContentTableLine(['void flush()', 'Очищает буфер ввода, записывая все содержимое в файл']),
+        ContentTableLine(['void write(int b)', 'Записывает в поток байт b (представлен как целочисленное)']),
+
+        ContentTableLine('Reader', 'subhead'),
+        ContentTableLine(['int read()', 'Возвращает целочисленное представление следующего символа в потоке или -1 при EOF']),
+        ContentTableLine(['abstract void close()', 'Закрывает поток']),
+
+        ContentTableLine('Writer', 'subhead'),
+        ContentTableLine(['void close()', 'Закрывает поток']),
+        ContentTableLine(['void flush()', 'Очищает буфер ввода, записывая все содержимое в файл']),
+        ContentTableLine(['void write(int c)', 'Записывает в поток символ c ,представленный целочисленным значением']),
+        ContentTableLine(['void write(String s)', 'Записывает в поток строку s'])
+    ]
+)
+
+FOSConstructor = """FileOutputStream(String fileName) throws FileNotFoundException
+FileOutputStream(File file) throws FileNotFoundException"""
+
+FRConstructor = """FileReader(String fileName) 
+FileReader(File file)"""
+
+FWConstructor = """FileWriter(String fileName)
+FileWriter(File file)"""
+
+OSTable = ContentTable(
+    False,
+    ['Метод', 'Что делает'],
+    [
+        ContentTableLine(['void close()', 'Закрывает поток']),
+        ContentTableLine(['void flush()', 'Сбрасывает буфер, записывает его содержимое в поток']),
+        ContentTableLine(['void writeObject(Object obj)', 'Записывает в поток объект'])
+    ]
+)
+
+ISTable = ContentTable(
+    False,
+    ['Метод', 'Что делает'],
+    [
+        ContentTableLine(['void close()', 'Закрывает поток']),
+        ContentTableLine(['Object readObject()', 'Считывает из потока объект'])
+    ]
+)
+
 chapter_list = define_from_html("java_streams.html")
 kwargs = {
     'Scanner': Scanner,
     'BufferedReader': BufferedReader,
     'BufferedStreamsMethods': BufferedStreamsMethods,
     'PrintWriter': PrintWriter,
-    'PrintWriterMethods': PrintWriterMethods
+    'PrintWriterMethods': PrintWriterMethods,
+    'FISConstr': FISConstr,
+    'baseStreamsMethods': baseStreamsMethods,
+    'FOSConstructor': FOSConstructor,
+    'FRConstructor': FRConstructor,
+    'FWConstructor': FWConstructor,
+    'OSTable': OSTable,
+    'ISTable': ISTable
 }
 instruction = Instruction(
     'Потоки ввода/вывода',

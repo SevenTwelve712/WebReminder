@@ -36,11 +36,19 @@ catch (IOException e){ // ловим возможные исключения
     System.out.println(e.getMessage());
 }"""
 
+sameCatch = 'catch (IOException | SomeOtherException ex) { do smth; }'
+
+customExceptions = """public class CustomException extends Exception{
+    CustomException(String msg){ super(msg); }
+}"""
+
 chapter_list = define_from_html("java_exceptions.html")
 kwargs = {
     'try_catch': try_catch,
     'throw': throw,
-    'tryWithResources': tryWithResources
+    'tryWithResources': tryWithResources,
+    'sameCatch': sameCatch,
+    'customExceptions': customExceptions
 }
 instruction = Instruction(
     'Исключения и ошибки',
