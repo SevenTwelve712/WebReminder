@@ -4,6 +4,11 @@ from webreminder_app import navbar, app
 from webreminder_app.pages.instructions import telebot_F, css_reminder_F, html_reminder_F, attributes_F, jinja_F
 
 
+@app.route('/instructions')
+def instructions():
+    return render_template('utils/instructions.html', navbar=navbar)
+
+
 @app.route('/instructions/telebot')
 def telebot():
     return render_template('utils/instruction.html', instruction=telebot_F.instruction, navbar=navbar, **telebot_F.kwargs)
