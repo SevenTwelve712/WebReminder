@@ -245,7 +245,8 @@ QLabel = ContentTable(
     ]
 )
 
-chapter_list = define_from_html("qt_main.html")
+html_path = 'qt/main.html'
+chapter_list = define_from_html(html_path)
 kwargs = {
     'QWidget': QWidget,
     "main_init": main_init,
@@ -259,7 +260,7 @@ kwargs = {
 
 instruction = Instruction(
     'Qt_main',
-    'qt_main.html',
+    html_path,
     kwargs,
     chapter_list
 )

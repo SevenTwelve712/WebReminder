@@ -110,4 +110,5 @@ kwargs = {
     'commands_table':commands_table,
     'sources': sources
 }
-page = Instruction('apt', 'apt.html', kwargs, define_from_html('apt.html'))
+html_path = 'linux/packages/apt.html'
+page = Instruction('apt', html_path, kwargs, define_from_html(html_path))

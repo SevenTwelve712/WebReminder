@@ -96,7 +96,8 @@ class CustomPropertyClass:
 
     value = Property(int, get_value, set_value)"""
 
-chapter_list = define_from_html("qt_animations.html")
+html_path = 'qt/animations.html'
+chapter_list = define_from_html(html_path)
 kwargs = {
     'PressableButtonWidget': PressableButtonWidget,
     'do_click_button': do_click_button,
@@ -106,7 +107,7 @@ kwargs = {
 
 instruction = Instruction(
     'Animations',
-    'qt_animations.html',
+    html_path,
     kwargs,
     chapter_list
 )

@@ -6,11 +6,12 @@ base_example = """public class Program{
         System.out.println("Hello world!");
     }
 }"""
-kwargs ={'base_example': base_example}
-chapter_list = define_from_html("java_main.html")
+kwargs = {'base_example': base_example}
+html_path = 'java/main.html'
+chapter_list = define_from_html(html_path)
 instruction = Instruction(
     'Основы',
-    'java_main.html',
+    html_path,
     kwargs,
     chapter_list
 )

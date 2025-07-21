@@ -47,7 +47,8 @@ while (cond);"""
 
 for_iter = """for (var elem : alam_arr) { do smth; }"""
 
-chapter_list = define_from_html("java_cond_expr_loops.html")
+html_path = 'java/cond_expr_loops.html'
+chapter_list = define_from_html(html_path)
 kwargs = {
     'if_': if_,
     'switch': switch,
@@ -60,7 +61,7 @@ kwargs = {
 }
 instruction = Instruction(
     'Условные выражения и циклы',
-    'java_cond_expr_loops.html',
+    html_path,
     kwargs,
     chapter_list
 )

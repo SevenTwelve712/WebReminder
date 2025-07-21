@@ -12,7 +12,8 @@ int x, y;"""
 constants = """final double P = 3.14;"""
 new = "MyClass obj = new MyClass(args);"
 
-chapter_list = define_from_html("java_variables.html")
+html_path = 'java/variables.html'
+chapter_list = define_from_html(html_path)
 kwargs = {
     'variables': variables,
     'constants': constants,
@@ -20,7 +21,7 @@ kwargs = {
 }
 instruction = Instruction(
     'Переменные и работа с ними',
-    'java_variables.html',
+    html_path,
     kwargs,
     chapter_list
 )

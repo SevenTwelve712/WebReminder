@@ -333,7 +333,8 @@ ArrayDequeMethods = ContentTable(
     ]
 )
 
-chapter_list = define_from_html("java_data_storage.html")
+html_path = 'java/data_storage.html'
+chapter_list = define_from_html(html_path)
 kwargs = {
     'arrays': arrays,
     'arrayList': arrayList,
@@ -347,7 +348,7 @@ kwargs = {
 
 instruction = Instruction(
     'Методы хранения данных',
-    'java_data_storage.html',
+    html_path,
     kwargs,
     chapter_list
 )

@@ -103,4 +103,5 @@ ssh_keygen = ContentTable(
     ]
 )
 kwargs = {'sshd_configs': sshd_configs, 'ssh_keygen': ssh_keygen}
-page = Instruction('ssh', 'ssh.html', kwargs, define_from_html('ssh.html'))
+html_path = 'net/ssh.html'
+page = Instruction('ssh', html_path, kwargs, define_from_html(html_path))

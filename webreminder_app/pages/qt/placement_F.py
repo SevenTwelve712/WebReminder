@@ -21,13 +21,14 @@ if __name__ == "__main__":
     app.exec()
 """
 
-chapter_list = define_from_html("qt_placement.html")
+html_path = 'qt/placement.html'
+chapter_list = define_from_html(html_path)
 kwargs = {
     "bad_visible": bad_visible
 }
 instruction = Instruction(
     'Размещение, наследование, отображение',
-    'qt_placement.html',
+    html_path,
     kwargs,
     chapter_list
 )

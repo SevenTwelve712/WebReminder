@@ -6,13 +6,14 @@ comment = """/**
 * second line
 */"""
 
-chapter_list = define_from_html("java_documentation.html")
+html_path = 'java/documentation.html'
+chapter_list = define_from_html(html_path)
 kwargs = {
     'comment': comment
 }
 instruction = Instruction(
     'Документация',
-    'java_documentation.html',
+    html_path,
     kwargs,
     chapter_list
 )

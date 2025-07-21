@@ -85,7 +85,8 @@ def callback_inline(call):
 # При нажатии на Suction юзеру отправится сообщение 6 hot loads
 # При нажатии на Billy юзеру отправится сообщение Herrington"""
 
-chapter_list = define_from_html('telebot.html')
+html_placement = 'instructions/telebot.html'
+chapter_list = define_from_html(html_placement)
 
 kwargs = {
     'code1': code1,
@@ -103,7 +104,7 @@ kwargs = {
 
 instruction = Instruction(
     'telebot',
-    'telebot.html',
+    html_placement,
     kwargs,
     chapter_list
 )

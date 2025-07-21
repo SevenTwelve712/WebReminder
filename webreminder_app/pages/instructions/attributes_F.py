@@ -44,10 +44,10 @@ content = ContentTable(
     ]
 )
 
-
+htnl_placement = 'instructions/attributes.html'
 instruction = Instruction(
     'Attributes',
-    'attributes.html',
+    htnl_placement,
     {'content': content},
     {}
 )

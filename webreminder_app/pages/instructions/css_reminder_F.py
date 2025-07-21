@@ -81,7 +81,8 @@ class_ = """.my_class{
 	border: 3px solid black;
 }"""
 
-headers = define_from_html('css_reminder.html')
+html_placement = 'instructions/css_reminder.html'
+headers = define_from_html(html_placement)
 
 kwargs = {
     'useful': useful,
@@ -92,7 +93,7 @@ kwargs = {
 
 instruction = Instruction(
     'Css reminder',
-    'css_reminder.html',
+    html_placement,
     kwargs,
     headers
 )

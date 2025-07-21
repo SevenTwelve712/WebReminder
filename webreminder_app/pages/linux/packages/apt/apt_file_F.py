@@ -92,5 +92,5 @@ kwargs = {
     'commands': commands,
     'options': options
 }
-
-page = Instruction('apt-file', 'apt-file.html', kwargs, define_from_html('apt-file.html'))
+html_path = 'linux/packages/apt-file.html'
+page = Instruction('apt-file', html_path, kwargs, define_from_html(html_path))

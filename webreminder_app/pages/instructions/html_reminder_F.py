@@ -195,11 +195,12 @@ kwargs = {
     'html_template': html_template
 }
 
-chapter_list = define_from_html('html_reminder.html')
+html_placement = 'instructions/html_reminder.html'
+chapter_list = define_from_html(html_placement)
 
 instruction = Instruction(
     'Html reminder',
-    'html_reminder.html',
+    html_placement,
     kwargs,
     chapter_list
 )

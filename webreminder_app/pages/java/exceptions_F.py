@@ -42,7 +42,8 @@ customExceptions = """public class CustomException extends Exception{
     CustomException(String msg){ super(msg); }
 }"""
 
-chapter_list = define_from_html("java_exceptions.html")
+html_path = 'java/exceptions.html'
+chapter_list = define_from_html(html_path)
 kwargs = {
     'try_catch': try_catch,
     'throw': throw,
@@ -52,7 +53,7 @@ kwargs = {
 }
 instruction = Instruction(
     'Исключения и ошибки',
-    'java_exceptions.html',
+    html_path,
     kwargs,
     chapter_list
 )

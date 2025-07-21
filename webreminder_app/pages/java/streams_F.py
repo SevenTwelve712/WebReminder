@@ -115,7 +115,8 @@ ISTable = ContentTable(
     ]
 )
 
-chapter_list = define_from_html("java_streams.html")
+html_path = 'java/streams.html'
+chapter_list = define_from_html(html_path)
 kwargs = {
     'Scanner': Scanner,
     'BufferedReader': BufferedReader,
@@ -132,7 +133,7 @@ kwargs = {
 }
 instruction = Instruction(
     'Потоки ввода/вывода',
-    'java_streams.html',
+    html_path,
     kwargs,
     chapter_list
 )

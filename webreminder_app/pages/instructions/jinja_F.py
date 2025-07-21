@@ -192,10 +192,10 @@ kwargs = {
     'macro_res': macro_res,
     'block_assign': block_assign
 }
-
+html_placement = 'instructions/jinja.html'
 page = Instruction(
     'jinja2',
-    'jinja.html',
+    html_placement,
     kwargs,
-    define_from_html('jinja.html')
+    define_from_html(html_placement)
 )

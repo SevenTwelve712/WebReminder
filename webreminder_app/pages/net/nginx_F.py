@@ -374,4 +374,5 @@ kwargs = {
     "total": total,
     "location_status": location_status
 }
-page = Instruction('nginx', 'nginx.html', kwargs, define_from_html('nginx.html'))
+html_path = 'net/nginx.html'
+page = Instruction('nginx', html_path, kwargs, define_from_html(html_path))
