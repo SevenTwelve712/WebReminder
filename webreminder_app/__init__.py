@@ -10,6 +10,7 @@ import webreminder_app.pages.linux.packages
 import webreminder_app.pages.libraries
 import webreminder_app.pages.net
 import webreminder_app.pages.qt
+import webreminder_app.pages.java.minecraft_modding
 
 
 @app.route('/')

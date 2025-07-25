@@ -1,7 +1,6 @@
-from webreminder_app import app, navbar
-
 from flask import render_template
 
+from webreminder_app import app, navbar
 from webreminder_app.pages.java import main_F, variables_F, cond_expr_loops_F, oop_F, data_storage_F, exceptions_F, \
     streams_F, documentation_F
 
