@@ -1,5 +1,5 @@
 from webreminder_app.utils.content_table import *
-from webreminder_app.utils.libraries_render import LibraryPage
+from webreminder_app.utils.table_only import TableOnlyPage
 from webreminder_app.utils.unordered_list import UnorderedList
 
 extra = ContentTable(
@@ -36,4 +36,4 @@ content = ContentTable(
     ]
 )
 
-page = LibraryPage('json', extra, content)
+page = TableOnlyPage('json', extra, content)

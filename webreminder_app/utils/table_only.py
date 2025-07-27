@@ -3,7 +3,7 @@ from typing import Union
 from webreminder_app.utils.content_table import ContentTable
 
 
-class LibraryPage:
+class TableOnlyPage:
     def __init__(self, library: str, extra_info: Union[ContentTable, bool], content: ContentTable):
         """
         Класс страницы библиотеки. NB: готовый шаблон страницы (сгенеренный) нужно размещать в директории

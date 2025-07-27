@@ -1,5 +1,5 @@
 from webreminder_app.utils.content_table import *
-from webreminder_app.utils.libraries_render import LibraryPage
+from webreminder_app.utils.table_only import TableOnlyPage
 
 extra = ContentTable(
     False,
@@ -35,4 +35,4 @@ content = ContentTable(
     ]
 )
 
-page = LibraryPage('csv', extra, content)
+page = TableOnlyPage('csv', extra, content)

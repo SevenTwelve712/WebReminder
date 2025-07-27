@@ -38,17 +38,18 @@ webreminder_app.pages.navigation_bar. Подробнее про NavigationBar с
 ### Про библиотеки
 Простой пример библиотеки:
 * Пишем саму страницу библиотеки
+
 ```python
 # library_name.py
 from webreminder_app.utils.content_table import *
-from webreminder_app.utils.libraries_render import LibraryPage
+from webreminder_app.utils.table_only import TableOnlyPage
 
 # Экстра инфо для библиотеки (будет отображаться сверху):
 extra = ContentTable(False, ['list of headers'], [ContentTableLine(['line_of_content'])])
 # Основной контент библиотеки:
 content = ContentTable('library_name', ['list of headers'], [ContentTableLine(['line_of_content'])])
 # Объект страницы библиотеки
-page = LibraryPage('library_name', extra, content)
+page = TableOnlyPage('library_name', extra, content)
 ```
 * Добавляем страницу библиотеки в web приложение
 ```python

@@ -1,5 +1,5 @@
 from webreminder_app.utils.content_table import *
-from webreminder_app.utils.libraries_render import LibraryPage
+from webreminder_app.utils.table_only import TableOnlyPage
 
 content = ContentTable(
     'jinja2',
@@ -131,7 +131,7 @@ content = ContentTable(
     ]
 )
 
-page = LibraryPage(
+page = TableOnlyPage(
     'jinja2',
     False, content
 )
