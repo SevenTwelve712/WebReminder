@@ -16,11 +16,10 @@ properties = ContentTable(
         ContentTableLine(['.fireResistant()', 'Предмет не сгорает в лаве или огне']),
         ContentTableLine(['.craftRemainder(Items.BUCKET)', 'Что остаётся после крафта']),
         ContentTableLine(['.defaultDurability(100)', 'Прочность по умолчанию (при создании)']),
-        ContentTableLine(['.arch$tab(CreativeModeTabs.TOOLS_AND_UTILITIES)', 'Назначение вкладки в креативе (новый Forge)']),
     ]
 )
 
-custom_item = """public class MagicWandItem extends Item {
+custom_item_base = """public class MagicWandItem extends Item {
     public MagicWandItem(Properties properties){
         super(properties);
     }
@@ -43,35 +42,30 @@ UseOnContext = ContentTable(
     ]
 )
 
-item_itemstack = ContentTable(
+# ContentTableLine(['isEnchantable(ItemStack)', 'Возвращает, можно ли зачаровать предмет']),
+# ContentTableLine(['getMaxStackSize()', 'Максимальное количество предметов в стаке']),
+# ContentTableLine(['getMaxDamage()', 'Возвращает максимальную прочность предмета (если применимо)']),
+# ContentTableLine(['isDamageable(ItemStack)', 'Возвращает true, если у предмета есть прочность']),
+# ContentTableLine(['getUseDuration(ItemStack)', 'Сколько тиков занимает использование предмета (например, 32 тика у еды)']),
+# ContentTableLine(['getUseAnimation(ItemStack)', 'Тип анимации при использовании (EAT, DRINK, BLOCK, BOW и др.)']),
+# ContentTableLine(['isFoil(ItemStack)', 'Показывает, мигает ли предмет (например, зачарованный)']),
+# ContentTableLine(['canBeDepleted()', 'Возвращает true, если у предмета ограниченная прочность']),
+# ContentTableLine(['isRepairable(ItemStack)', 'Можно ли чинить предмет']),
+# ContentTableLine(['getTag() / setTag(CompoundTag)', 'Получение или установка тега']),
+# ContentTableLine(['hasTag()', 'Есть ли у предмета NBT-данные']),
+# ContentTableLine(['hasCustomHoverName() / getHoverName()', 'Проверка на пользовательское имя и его получение']),
+
+ItemStackMethods = ContentTable(
     caption=False,
     header=['метод', 'что делает'],
     lines=[
-        ContentTableLine('Item', type_='subhead'),
-        ContentTableLine(['getDefaultInstance()', 'Возвращает стандартный ItemStack этого предмета (используется, например, для иконки в креативке)']),
-        ContentTableLine(['isEnchantable(ItemStack)', 'Возвращает, можно ли зачаровать предмет']),
-        ContentTableLine(['getMaxStackSize()', 'Максимальное количество предметов в стаке']),
-        ContentTableLine(['getMaxDamage()', 'Возвращает максимальную прочность предмета (если применимо)']),
-        ContentTableLine(['isDamageable(ItemStack)', 'Возвращает true, если у предмета есть прочность']),
-        ContentTableLine(['getUseDuration(ItemStack)', 'Сколько тиков занимает использование предмета (например, 32 тика у еды)']),
-        ContentTableLine(['getUseAnimation(ItemStack)', 'Тип анимации при использовании (EAT, DRINK, BLOCK, BOW и др.)']),
-        ContentTableLine(['isFoil(ItemStack)', 'Показывает, мигает ли предмет (например, зачарованный)']),
-        ContentTableLine(['canBeDepleted()', 'Возвращает true, если у предмета ограниченная прочность']),
-        ContentTableLine(['isRepairable(ItemStack)', 'Можно ли чинить предмет']),
-
-        ContentTableLine('ItemStack', type_='subhead'),
-        ContentTableLine(['getItem()', 'Возвращает объект Item, которому принадлежит этот стак']),
-        ContentTableLine(['getDamageValue() / setDamageValue(int)', 'Получение/установка текущего урона предмета']),
-        ContentTableLine(['hurtAndBreak(int amount, LivingEntity, Consumer)', 'Наносит урон предмету, ломает, вызывает callback']),
         ContentTableLine(['isEmpty()', 'Проверка, пуст ли стак']),
         ContentTableLine(['is(Item)', 'Проверка, является ли этот стак конкретным предметом']),
-        ContentTableLine(['getTag() / setTag(CompoundTag)', 'Получение или установка NBT-данных']),
-        ContentTableLine(['hasTag()', 'Есть ли у предмета NBT-данные']),
+        ContentTableLine(['is(TagKey)', 'Проверка, принадлежит ли предмет конкретному тегу']),
         ContentTableLine(['copy()', 'Создаёт копию ItemStack (очень полезно при клонировании или модификации)']),
         ContentTableLine(['enchant(Enchantment, int)', 'Применяет чары к предмету (программно)']),
         ContentTableLine(['isEnchanted()', 'Есть ли чары у предмета']),
         ContentTableLine(['setHoverName(Component)', 'Устанавливает пользовательское имя предмета']),
-        ContentTableLine(['hasCustomHoverName() / getHoverName()', 'Проверка на пользовательское имя и его получение']),
         ContentTableLine(['shrink(int) / grow(int)', 'Уменьшает/увеличивает размер стака']),
     ]
 )
@@ -83,12 +77,34 @@ item_model = """{
   }
 }"""
 
+ItemExtends = ContentTable(
+    caption=False,
+    header=['Класс', 'Аргументы конструктора', 'Назначение'],
+    lines=[
+        ContentTableLine(['BlockItem(Block, Properties)', 'Block — связанный блок', 'Помещает блок в мир при использовании']),
+        ContentTableLine(['SwordItem(Tier, damage, speed, Properties)', 'Урон, скорость, свойства', 'Меч']),
+        ContentTableLine(['PickaxeItem(Tier, damage, speed, Properties)', 'То же', 'Кирка']),
+        ContentTableLine(['AxeItem(Tier, damage, speed, Properties)', 'То же', 'Топор']),
+        ContentTableLine(['ShovelItem(...)', 'То же', 'Лопата']),
+        ContentTableLine(['HoeItem(...)', 'То же', 'Мотыга']),
+        ContentTableLine(['BowItem(Properties)', 'Properties', 'Лук']),
+        ContentTableLine(['CrossbowItem(Properties)', 'Properties', 'Арбалет']),
+        ContentTableLine(['ShieldItem(Properties)', 'Properties', 'Щит']),
+        ContentTableLine(['ArmorItem(ArmorMaterial, Slot, Properties)', 'Материал, слот, свойства', 'Предмет брони']),
+        ContentTableLine(['FoodItem(Properties.food(...))', 'Через Item.Properties().food(...)', 'Еда']),
+        ContentTableLine(['BucketItem(Supplier<Fluid>, ...)', 'Какой жидкостью наполнено', 'Ведро']),
+        ContentTableLine(['SpawnEggItem(...)', 'Цвета и сущность', 'Яйцо спауна']),
+        ContentTableLine(['FishingRodItem(...)', '...', 'Удочка — работает с механикой рыбалки']),
+    ]
+)
+
 kwargs = {
     'properties': properties,
-    'custom_item': custom_item,
+    'custom_item_base': custom_item_base,
     'UseOnContext': UseOnContext,
-    'item_itemstack': item_itemstack,
-    'item_model': item_model
+    'item_model': item_model,
+    'ItemStackMethods': ItemStackMethods,
+    'ItemExtends': ItemExtends
 }
 instruction = Instruction(
     'Предеты в майнкрафт',

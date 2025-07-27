@@ -1,20 +1,17 @@
 {% from 'utils/code_block.html' import code_block %}
 {% from 'utils/content_table.html' import table %}
 
-<h1 id="adding">Добавление</h1>
-<p>Для простого добавления предмета необходимо просто добавить его в регистратор:</p>
-<p><code>REGISTARTOR.register("item_id", () -> new Item(new Item.Properties()));</code></p>
-<h2 id="properties">Свойства</h2>
-<p>Сначала разберемся с Properties: это параметры предмета, определяющие его. Вот список некоторых полезных параметров:</p>
+<h1 id="item">Класс Item</h1>
+<h2 id="constructor">Конструктор</h2>
+<code>new Item(new Item.Properties())</code>
+<p>Properties — это параметры предмета, определяющие его. Вот список некоторых полезных параметров:</p>
 {{ table(properties) }}
 <p>параметры прописываются как методы Properties, например: <code>Item.Properties().durability(540)</code></p>
 
-<h1 id="customItem">Кастомный предмет</h1>
-<p>нас интересует не только добавить предмет, но и переопределить его поведение. Для этого создадим новый класс</p>
-{{ code_block(custom_item) }}
+<h2 id="methods">Методы</h2>
+<p>Методы, переопределяющие поведение предмета:</p>
 
-<p>После этого наш предмет создан, но мы хотим переопределить его поведение. Для этого переопределить его методы:</p>
-<h2 id="useOn">useOn</h2>
+<h3 id="useOn">useOn</h3>
 <p>Принимает <code>UseOnContext pContext</code>, вызывается при пкм с предметом в руке</p>
 <p>полезные методы pContext:</p>
 {{ table(UseOnContext) }}
@@ -24,18 +21,27 @@
      Проверяй <code>level.isClientSide()</code>, или что-то подобное</li>
 </ul>
 
-<h1 id="item_itemstack">Item и ItemStack</h1>
-<p>Стоит различать эти два класса: Item это абстрактный предмет, добавляемый в игру (я добавляю лопату), а ItemStack — ее конкретная репрезентация
-(лопата, которую я скрафтил, наполовину сломанная). Полезные методы этих классов:</p>
-{{ table(item_itemstack) }}
+<h2 id="useful_code">Примеры полезного кода</h2>
+<h3 id="simple_item_registration">Регистрация простого предмета</h3>
+{{ code_block('ITEMS.register("item_id", () -> new Item(new Item.Properties()));') }}
 
-<h2 id="methods_explaining">Объяснение и примечания к некоторым методам</h2>
+<h3 id="custom_item_constr">Базовый класс кастомного класса для предмета</h3>
+{{ code_block(custom_item_base) }}
+
+
+<h1 id="ItemStack">Класс ItemStack</h1>
+<p>Класс, который отвечает за конкретное состояние предмета в игре. Например, его объект мы получаем при вызове <code>player.getItemInHand(HAND)</code></p>
+<p>Таблица полезных методов получения информации:</p>
+{{ table(ItemStackMethods) }}
+
+<h2 id="useful_code_itemstack">Полезный код</h2>
 <h3 id="hurtAndBreak">hurtAndBreak</h3>
-<p>Пока не до конца понял, как он работает, но это сто проц рабочий вариант
-    (предварительно, если мы чекнули, что level находится на серверной стороне)</p>
-<p><code>pContext.getItemInHand().hurtAndBreak(1, ((ServerLevel) level),
-    (ServerPlayer) pContext.getPlayer(), item -> pContext.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));</code></p>
+{{ code_block('pContext.getItemInHand().hurtAndBreak(1, ((ServerLevel) level), (ServerPlayer) pContext.getPlayer(),
+item -> pContext.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));') }}
 
+<h1 id="extends">Классы наследники Item</h1>
+<p>У Item есть несколько полезных классов наследников, реализующих необходимый функционал:</p>
+{{ table(ItemExtends) }}
 
 <h1 id="representation">Отображение в игре</h1>
 <p>прежде всего, не забываем добавить наш предмет в <code>resources/assets/mod_id/lang/en_us.json</code>. Указываем

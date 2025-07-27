@@ -1,0 +1,57 @@
+{% from 'utils/code_block.html' import code_block %}
+{% from 'utils/content_table.html' import table %}
+
+
+<h1 id="Block">Класс Block</h1>
+<p><b>NB: при создании блока не забудь создать его BlockItem</b></p>
+<h2 id="Block_constructor">Конструктор</h2>
+{{ code_block('new Block(BlockBehaviour.Properties())') }}
+
+<p>Таблица свойств</p>
+{{ table(properties) }}
+
+<h2 id="methods">методы</h2>
+<p>Получение информации:</p>
+{{ table(get_block_info) }}
+
+<p>переопределение поведения:</p>
+{{ code_block('') }}
+
+<h2 id="useful_code_Block">Полезный код</h2>
+<h3 id="register_Block">регистрация блока</h3>
+{{ code_block('public static final RegistryObject&gt;Block&lt; CUSTOM_BLOCK =
+BLOCKS.register("block_id", () -> new Block(BlockBehaviour.Properties.of());') }}
+
+<h1 id="BlockState">Класс BlockState</h1>
+<p>Класс BlockState — класс конкретного состояния блока в игре (как ItemStack у Item). Содержит ссылку на тип блока и набор свойств и их значений.</p>
+<p>Полезные методы класса:</p>
+ {{ table(BlockStateMethods) }}
+
+<h2 id="custom_properties">Кастомные свойства</h2>
+<p>помимо дефолтных свойств, задаваемых блоку при его регистрации, мы можем добавить свои. Например, для класса лампы можно добавить свойство <code>ACTIVATED</code>,
+которое будет отвечать за состояние лампы: вкл или выкл</p>
+<p>Для того, чтобы зарегистрировать свойство, нам надо:</p>
+<ul>
+ <li>Создать его: <code>public static final BooleanProperty PROPERTY_NAME = BooleanProperty.create("property_id");</code>
+ <p>Конечно, вместо BooleanProperty можно указывать любое доступное свойство, основываясь на данных, которые мы хотим хранить в свойстве</p></li>
+ <li>Зарегистрировать: {{ code_block(property_registration) }}</li>
+ <li>При желании в конструкторе установить дефолтное значение: <code>this.registerDefaultState(this.defaultBlockState().setValue(PROPERTY_NAME, false));</code></li>
+</ul>
+<p>теперь мы можем получать это свойство и устанавливать новое значение для него (методы см. выше)</p>
+<p>Кроме того, в зависимости от свойства мы можем ссылаться на разные модели в blockstates.json:</p>
+{{ code_block(blockstates_example) }}
+
+<h1 id="heir_classes">Классы наследники Block</h1>
+<p>Помимо класса обычного блока можно использовать классы, наследующиеся от класса блока. Если нам нужен функционал нескольких классов (например, падает и дропает опыт при разрушении),
+то придется наследоваться от Block и вручную переопределять методы. Это и делают классы по типу DropExperienceBlock, просто под капотом</p>
+<p>Вот некоторые классы, которыми можно пользоваться:</p>
+{{ table(block_classes) }}
+
+<h1 id="representation">Вид в игре</h1>
+<p>Для отображения в игре забиваем три файла:</p>
+<ul>
+ <li><code>assets/mod_id/blockstates/block_id.json</code>: его разбор смотри в класс <a href="#BlockState">BlockState</a></li>
+ <li><code>assets/mod_id/model/block/block_id.json</code>:
+ {{ code_block(block_model) }}</li>
+ <li><code>assets/mod_id/textures/block/block_id.json</code>: сюда кладем текстуру block_id.png</li>
+</ul>
