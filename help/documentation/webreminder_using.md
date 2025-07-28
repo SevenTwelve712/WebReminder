@@ -63,8 +63,8 @@ app = Flask('app_name')
 
 @app.route('/libraries/library_name')
 def library_name():
-    return render_template('utils/library.html', library=page, navbar=navbar)
-# NB: 'utils/library.html' отсылает к шаблону jinja, этот параметр менять не надо
+    return render_template('utils/table_only.html', library=page, navbar=navbar)
+# NB: 'utils/table_only.html' отсылает к шаблону jinja, этот параметр менять не надо
 ```
 Некоторые детали:
 + Для более подробной информации про ContentTable, ContentTableLina, LibraryPage смотри секцию utils

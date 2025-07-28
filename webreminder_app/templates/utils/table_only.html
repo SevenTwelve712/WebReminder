@@ -3,16 +3,18 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    {% for style in library.styles %}
+    {% for style in page.styles %}
     <link href="{{ url_for('static', filename='styles' + style) }}" rel="stylesheet">
     {% endfor %}
-    <title>{{ library.name }}</title>
+    <title>{{ page.name }}</title>
 </head>
 <body>
 {% include 'utils/nav_bar.html' %}
-{% if library.extra %}
-{{ table(library.extra) }}
+{% if page.extra is string %}
+<p class="extra_p"> {{ page.extra | safe }} </p>
+{% elif page.extra %}
+{{ table(page.extra) }}
 {% endif %}
-{{ table(library.content) }}
+{{ table(page.content) }}
 </body>
 </html>

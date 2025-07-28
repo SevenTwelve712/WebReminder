@@ -7,44 +7,44 @@ from webreminder_app.pages.libraries import json_F, builtins_F, random_F, functo
 
 @app.route('/libraries/json')
 def json():
-    return render_template('utils/library.html', library=json_F.page, navbar=navbar)
+    return render_template('utils/table_only.html', page=json_F.page, navbar=navbar)
 
 
 @app.route('/libraries/builtins')
 def builtins():
-    return render_template('/utils/library.html', library=builtins_F.page, navbar=navbar)
+    return render_template('/utils/table_only.html', page=builtins_F.page, navbar=navbar)
 
 
 @app.route('/libraries/random')
 def random():
-    return render_template('utils/library.html', library=random_F.page, navbar=navbar)
+    return render_template('utils/table_only.html', page=random_F.page, navbar=navbar)
 
 
 @app.route('/libraries/functools')
 def functools():
-    return render_template('utils/library.html', library=functools_F.page, navbar=navbar)
+    return render_template('utils/table_only.html', page=functools_F.page, navbar=navbar)
 
 
 @app.route('/libraries/itertools')
 def itertools():
-    return render_template('utils/library.html', library=itertools_F.page, navbar=navbar)
+    return render_template('utils/table_only.html', page=itertools_F.page, navbar=navbar)
 
 
 @app.route('/libraries/csv')
 def csv():
-    return render_template('utils/library.html', library=csv_F.page, navbar=navbar)
+    return render_template('utils/table_only.html', page=csv_F.page, navbar=navbar)
 
 
 @app.route('/libraries/jinja')
 def jinja_lib():
-    return render_template('utils/library.html', library=jinja_lib_F.page, navbar=navbar)
+    return render_template('utils/table_only.html', page=jinja_lib_F.page, navbar=navbar)
 
 
 @app.route('/libraries/math')
 def math():
-    return render_template('utils/library.html', library=math_F.page, navbar=navbar)
+    return render_template('utils/table_only.html', page=math_F.page, navbar=navbar)
 
 
 @app.route('/libraries/os')
 def os():
-    return render_template('utils/library.html', library=os_F.page, navbar=navbar)
+    return render_template('utils/table_only.html', page=os_F.page, navbar=navbar)

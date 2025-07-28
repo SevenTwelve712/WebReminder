@@ -10,6 +10,10 @@
     font-family: 'for_subtitles';
     src: url('../fonts/for_subtitles.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'for_text';
+    src: url('../fonts/for_text.ttf') format('truetype');
+}
 .subheading td{
 	font-family: for_subtitles;
 	font-size: 40px;
@@ -67,4 +71,17 @@ hr {
     background: #20B2AA;
     border: 0;
     margin: 1% 10% 1% 10%;
+}
+
+.extra_p {
+    padding-top: 40px;
+    font-family: "for_text";
+    font-size: 25px;
+    margin: auto;
+    width: 90%;
+}
+
+code{
+    background: #66CDAA;
+    border-radius: 5px;
 }
