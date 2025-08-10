@@ -11,7 +11,7 @@
 <h2 id="methods">Методы</h2>
 <p>Методы, переопределяющие поведение предмета:</p>
 
-<h3 id="useOn">useOn</h3>
+<h3 id="useOn">.useOn</h3>
 <p>Принимает <code>UseOnContext pContext</code>, вызывается при пкм с предметом в руке</p>
 <p>полезные методы pContext:</p>
 {{ table(UseOnContext) }}
@@ -20,6 +20,22 @@
     <li>Различай clientSide и serverSide при работе с Level. Изменения блоков/сущностей и проч. должны происходить на сервере, а частицы/визуальные эффекты на клиенте.
      Проверяй <code>level.isClientSide()</code>, или что-то подобное</li>
 </ul>
+
+<h3 id="getUseAnimation">.getUseAnimation</h3>
+<p>Принимает <code>ItemStack</code>, нужно вернуть анимацию для него при использовании</p>
+<p>Полезно, например, если мы хотим переопределить дефолтную анимацию еду на питье:</p>
+{{ code_block(getUseAnimation) }}
+
+<h3 id="getBurnTime">.getBurnTime</h3>
+<p><code>public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType)</code></p>
+<p>Нужно вернуть время горения предмета в тиках, полезно для топлива.</p>
+
+<h3 id="appendHoverText">.appendHoverText</h3>
+<p><code>public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List&gt;Component&lt; pTooltipComponents, TooltipFlag pTooltipFlag)</code></p>
+<p>Добавляет подсказку к предмету при наведении:</p>
+<p><code>pTooltipComponents.add(Component.translatable("tooltip_id, for example tooltip.mod_id.tooltip_id"));</code>. Теперь осталось прописать перевод для этого id в lang</p>
+<p>Каждый новый вызов .add добавляет новую строку. Также можно проверять условие <code>Screen.isShiftDown</code>, чтобы возвращать
+соответствующий контент при зажатом шифте</p>
 
 <h2 id="useful_code">Примеры полезного кода</h2>
 <h3 id="simple_item_registration">Регистрация простого предмета</h3>

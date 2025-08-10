@@ -22,7 +22,7 @@
     {% else %}
     <tr>
         {% for elem in line %}
-        <td>{{ elem }}</td>
+        <td>{{ elem | safe }}</td>
         {% endfor %}
     </tr>
     {% endif %}

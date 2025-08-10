@@ -10,7 +10,7 @@ properties = ContentTable(
     header=['Property', 'за что отвечает'],
     lines=[
         ContentTableLine(['.durability(int)', 'Прочность предмета (если инструмент)']),
-        ContentTableLine(['.food(FoodProperties)', 'Указывает, что предмет съедобный ']),
+        ContentTableLine(['.food(<a href="/java/minecraft_modding/food_properties">FoodProperties</a>)', 'Указывает, что предмет съедобный ']),
         ContentTableLine(['.rarity(Rarity.EPIC)', 'Редкость: COMMON, UNCOMMON, RARE, EPIC']),
         ContentTableLine(['.stacksTo(16)', 'Максимальное количество в стаке (по умолчанию 64)']),
         ContentTableLine(['.fireResistant()', 'Предмет не сгорает в лаве или огне']),
@@ -98,14 +98,20 @@ ItemExtends = ContentTable(
     ]
 )
 
+getUseAnimation = """public UseAnim getUseAnimation(ItemStack pStack) {
+    return UseAnim.DRINK;
+}"""
+
 kwargs = {
     'properties': properties,
     'custom_item_base': custom_item_base,
     'UseOnContext': UseOnContext,
     'item_model': item_model,
     'ItemStackMethods': ItemStackMethods,
-    'ItemExtends': ItemExtends
+    'ItemExtends': ItemExtends,
+    'getUseAnimation': getUseAnimation
 }
+
 instruction = Instruction(
     'Предеты в майнкрафт',
     html_path,

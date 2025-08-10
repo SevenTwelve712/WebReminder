@@ -7,15 +7,21 @@
 <h2 id="Block_constructor">Конструктор</h2>
 {{ code_block('new Block(BlockBehaviour.Properties())') }}
 
-<p>Таблица свойств</p>
+<p>Таблица свойств .Properties()</p>
 {{ table(properties) }}
 
-<h2 id="methods">методы</h2>
+<h2 id="methods">Методы класса Block</h2>
 <p>Получение информации:</p>
 {{ table(get_block_info) }}
 
 <p>переопределение поведения:</p>
-{{ code_block('') }}
+
+<h3 id="appendHoverText">.appendHoverText</h3>
+<p><code>public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List&gt;Component&lt; pTooltipComponents, TooltipFlag pTooltipFlag)</code></p>
+<p>Добавляет подсказку к привязанному BlockItem при наведении:</p>
+<p><code>pTooltipComponents.add(Component.translatable("tooltip_id, for example tooltip.mod_id.tooltip_id"));</code>. Теперь осталось прописать перевод для этого id в lang</p>
+<p>Каждый новый вызов .add добавляет новую строку. Также можно проверять условие <code>Screen.isShiftDown</code>, чтобы возвращать
+соответствующий контент при зажатом шифте</p>
 
 <h2 id="useful_code_Block">Полезный код</h2>
 <h3 id="register_Block">регистрация блока</h3>

@@ -2,7 +2,7 @@ from flask import render_template
 
 from webreminder_app import app, navbar
 from webreminder_app.pages.java.minecraft_modding import entry_point_F, item_F, object_registering_F, block_F, \
-    food_properties_F
+    food_properties_F, creative_tabs_F, json_structure_F, tags_F
 
 
 @app.route('/java/minecraft_modding/entry_point')
@@ -28,3 +28,18 @@ def minecraft_block():
 @app.route('/java/minecraft_modding/food_properties')
 def minecraft_food_properties():
     return render_template('utils/table_only.html', page=food_properties_F.page, navbar=navbar)
+
+
+@app.route('/java/minecraft_modding/creative_tabs')
+def minecraft_creative_tabs():
+    return render_template('utils/instruction.html', instruction=creative_tabs_F.instruction, navbar=navbar, **creative_tabs_F.kwargs)
+
+
+@app.route('/java/minecraft_modding/json_structure')
+def minecraft_json_structure():
+    return render_template('utils/instruction.html', instruction=json_structure_F.instruction, **json_structure_F.kwargs, navbar=navbar)
+
+
+@app.route('/java/minecraft_modding/tags')
+def minecraft_tags():
+    return render_template('utils/instruction.html', instruction=tags_F.instruction, navbar=navbar, **tags_F.kwargs)
