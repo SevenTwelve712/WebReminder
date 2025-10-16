@@ -1,7 +1,7 @@
 from flask import render_template
 
 from webreminder_app import navbar, app
-from webreminder_app.pages.instructions import telebot_F, css_reminder_F, html_reminder_F, attributes_F, jinja_F
+from webreminder_app.pages.instructions import telebot_F, css_reminder_F, html_reminder_F, attributes_F, jinja_F, git_F
 
 
 @app.route('/instructions')
@@ -32,3 +32,8 @@ def attributes():
 @app.route('/instructions/jinja')
 def jinja_inst():
     return render_template('utils/instruction.html', instruction=jinja_F.page, navbar=navbar, **jinja_F.kwargs)
+
+
+@app.route('/instructions/git')
+def git():
+    return render_template('utils/instruction.html', instruction=git_F.page, navbar=navbar, **git_F.kwargs)
