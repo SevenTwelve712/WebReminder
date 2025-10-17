@@ -18,7 +18,10 @@ cheatsheet = ContentTable(
         ContentTableLine(["git rm <файл>", "Удаляет файл из индекса и рабочей директории"]),
         ContentTableLine(["git rm --cached <файл>", "Удаляет файл из индекса"]),
         ContentTableLine(["git mv <старое имя> <новое имя>", "Переименовывает или перемещает файл"]),
-        ContentTableLine(["git restore file", "Возвращает файл в состояние предыдущего коммита"]),
+        ContentTableLine(["git restore file", "Возвращает файл в состояние предыдущего коммита (в рабочей директории)"]),
+        ContentTableLine(["git restore --staged file", "Удаляет файл из индекса"]),
+        ContentTableLine(["git restore --source <commit> file", "Восстанавливает файл из определенного коммита"]),
+        ContentTableLine(["git restore --source branch", "Восстанавливает файл из заданной ветки"]),
 
         # --- Коммиты ---
         ContentTableLine("Коммиты", type_="subhead"),
@@ -29,11 +32,12 @@ cheatsheet = ContentTable(
         ContentTableLine("Ветки", type_="subhead"),
         ContentTableLine(["git branch -vv", "Показывает список веток и информацию о них"]),
         ContentTableLine(["git branch <имя>", "Создаёт новую ветку"]),
-        ContentTableLine(["git checkout -b branch", "Создает новую ветку и сразу же переключается на нее"]),
-        ContentTableLine(["git checkout <ветка>", "Переключается на указанную ветку"]),
+        ContentTableLine(["git switch -b branch", "Создает новую ветку и сразу же переключается на нее"]),
+        ContentTableLine(["git switch <ветка>", "Переключается на указанную ветку"]),
         ContentTableLine(["git branch -d branch", "Удаляет ветку"]),
         ContentTableLine(["git merge <ветка>", "Сливает указанную ветку в текущую"]),
-        ContentTableLine(["git marge", "Сливает ветку и ее удаленный аналог, если изменения получены с сервера"]),
+        ContentTableLine(["git rebase <ветка>", "Перебазирует указанную ветку в текущую"]),
+        ContentTableLine(["git merge", "Сливает ветку и ее удаленный аналог, если изменения получены с сервера"]),
 
         # --- Истоия ---
         ContentTableLine(["git log", "Показывает историю коммитов"]),
