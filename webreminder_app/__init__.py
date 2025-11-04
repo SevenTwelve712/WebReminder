@@ -11,6 +11,7 @@ import webreminder_app.pages.libraries
 import webreminder_app.pages.net
 import webreminder_app.pages.qt
 import webreminder_app.pages.java.minecraft_modding
+import webreminder_app.pages.vagray
 
 
 @app.route('/')

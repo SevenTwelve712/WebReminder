@@ -13,17 +13,17 @@
     Это особая версия командной строки, выглядит примерно так:
     <img src="{{ url_for('static', filename='imgs/Intel_ONEAPI_cli.png') }}"></li>
     <li>Затем перейдите в вашу директорию с проектом командами <b>cd</b>. Например, в моем случае команда перехода в рабочую директорию выглядела бы так:
-    {{ code_block("cd C:\Users\seven\Documents\Vagray\my_work") }}</li>
+    {{ code_block("cd C:\\Users\\seven\\Documents\\Vagray\\my_work") }}</li>
     <li>Для компиляции файла (создание .exe) выполните (введите в командную строку и нажмите <b>enter</b>)</li>
     {{ code_block("ifort <i>ваш_скрипт.f</i> -o <i>создаваемый_exe_файл.exe</i>") }}
     <li>Это создаст .exe в вашей рабочей директории, можете запускать его. Это и будет исполняемый файл вашей программы</li>
 </ol>
-<h2 id="extra">Примечания</h2>
+<h1 id="extra">Примечания</h1>
 <ul>
     <li>Вы в принципе можете не переходить в рабочую директорию, а указать абсолютное имя скрипта и абсолютное имя программы. Например, в моем случае
     следующая команда сработала бы, если бы я не менял директорию:
-    {{ code_block("ifort C:\Users\seven\Documents\Vagray\my_work\vagin_changed_formats.f -o C:\Users\seven\result.exe") }}
+    {{ code_block("ifort C:\\Users\\seven\\Documents\\Vagray\\my_work\\vagin_changed_formats.f <br>-o C:\\Users\\seven\\result.exe") }}
         Она создала бы исполняемый <code>result.exe</code> в моей директории пользователя (<b>C:\Users\seven</b>)</li>
     <li>Вы можете использовать не компилятор ifort, а его более новую версию: ifx. Для этого в команде компиляции замените <code>ifort</code> на <code>ifx</code>
-    {{ code_block("ifx <i>ваш файл .f</i> -o <i>имя .exe файла, который вы хотите создать</i>") }}</li>
+    {{ code_block("ifx <i>ваш_скрипт.f</i> -o <i>создаваемый_exe_файл.exe</i>") }}</li>
 </ul>
