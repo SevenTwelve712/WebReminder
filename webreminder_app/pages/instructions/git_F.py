@@ -52,7 +52,7 @@ cheatsheet = ContentTable(
         ContentTableLine(["git remote -v", "Показывает список удалённых репозиториев"]),
         ContentTableLine(["git remote add <имя> <url>", "Добавляет удалённый репозиторий"]),
         ContentTableLine(["git fetch", "Загружает изменения из удалённого репозитория без слияния"]),
-        ContentTableLine(["git push -u origin main", "Пушит изменения ветки на сервер origin, привязывая ее к удаленной ветке main"]),
+        ContentTableLine(["git push -u origin main", "Пушит изменения ветки main на сервер origin, привязывая ее к одноименной удаленной ветке"]),
         ContentTableLine(["git push origin main", "Пушит изменения в репозиторий origin на ветку main"]),
         ContentTableLine(["git push", "Пушит изменения ветки в ее удаленный аналог"]),
         ContentTableLine(["git pull origin main", "Загружает и сливает изменения с ветки origin/main"]),
