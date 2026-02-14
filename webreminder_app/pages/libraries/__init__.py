@@ -2,7 +2,7 @@ from flask import render_template
 
 from webreminder_app import app, navbar
 from webreminder_app.pages.libraries import json_F, builtins_F, random_F, functools_F, itertools_F, csv_F, jinja_lib_F, \
-    math_F, os_F
+    math_F, os_F, python_docx_F
 
 
 @app.route('/libraries/json')
@@ -48,3 +48,7 @@ def math():
 @app.route('/libraries/os')
 def os():
     return render_template('utils/table_only.html', page=os_F.page, navbar=navbar)
+
+@app.route("/libraries/python-docx")
+def python_docx():
+    return render_template('utils/instruction.html', instruction=python_docx_F.instruction, navbar=navbar, **python_docx_F.instruction.content_kwargs)

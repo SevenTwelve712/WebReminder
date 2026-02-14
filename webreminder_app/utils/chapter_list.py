@@ -28,7 +28,7 @@ class ChapterList:
     def add_header(self, header: Header):
         self.headers.append(header)
 
-
+# TODO: пофиксить баг если я забыл указать id
 def define_from_html(path: str):
     """
     Выделяет из html документа заголовки и формирует их структуру

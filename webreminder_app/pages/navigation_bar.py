@@ -12,7 +12,8 @@ navbar_f = NavigationBar(
             NavElem('math'),
             NavElem('os'),
             NavElem('random'),
-            NavElem('jinja2', 'jinja_lib')
+            NavElem('jinja2', 'jinja_lib'),
+            NavElem("python-docx", "python_docx")
         ]),
         NavHeaderBlock(NavElem('Инструкции', False), [
             NavElem('telebot'),
