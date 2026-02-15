@@ -43,3 +43,219 @@ xml = p._element') }}
   используя ._element и затем find(), но через внутренне апи лучше, так как это удобно и уже все за нас написали че выебываться</p>
 <p>Примеры таких объектов:</p>
 
+<h3 id="tbl">У таблиц</h3>
+<p><code>table._tbl.tblPr</code> — свойства таблицы. Некоторые xml узлы:</p>
+
+<table class="content_table">
+  <thead>
+  <tr>
+    <td>Узел</td>
+    <td>За что отвечает</td>
+    <td>Атрибуты</td>
+    <td>Значение атрибутов</td>
+    <td>За что отвечает атрибут</td>
+  </tr>
+  </thead>
+
+  <!-- tblW -->
+  <tr>
+    <td rowspan="2">w:tblW</td>
+    <td rowspan="2">Ширина таблицы</td>
+    <td>w:w</td>
+    <td>Число</td>
+    <td>Численная ширина таблицы (twips или pct)</td>
+  </tr>
+  <tr>
+    <td>w:type</td>
+    <td>auto | dxa | pct | nil</td>
+    <td>Тип исчисления ширины</td>
+  </tr>
+
+  <!-- jc -->
+  <tr>
+    <td>w:jc</td>
+    <td>Выравнивание таблицы</td>
+    <td>w:val</td>
+    <td>left | center | right</td>
+    <td>Горизонтальное выравнивание таблицы</td>
+  </tr>
+
+  <!-- tblLayout -->
+  <tr>
+    <td>w:tblLayout</td>
+    <td>Режим компоновки таблицы</td>
+    <td>w:type</td>
+    <td>fixed | autofit</td>
+    <td>Фиксированная ширина или авто-подбор</td>
+  </tr>
+
+  <!-- tblBorders -->
+  <tr>
+    <td rowspan="4">w:tblBorders</td>
+    <td rowspan="4">Границы таблицы</td>
+    <td>w:val</td>
+    <td>single | double | dashed | dotted | nil | none</td>
+    <td>Стиль линии границы</td>
+  </tr>
+  <tr>
+    <td>w:sz</td>
+    <td>Число</td>
+    <td>Толщина границы (в 1/8 pt)</td>
+  </tr>
+  <tr>
+    <td>w:space</td>
+    <td>Число</td>
+    <td>Отступ линии от содержимого</td>
+  </tr>
+  <tr>
+    <td>w:color</td>
+    <td>HEX | auto</td>
+    <td>Цвет границы</td>
+  </tr>
+
+  <!-- tblCellMar -->
+  <tr>
+    <td rowspan="2">w:tblCellMar</td>
+    <td rowspan="2">Внутренние отступы ячеек</td>
+    <td>w:w</td>
+    <td>Число</td>
+    <td>Размер отступа</td>
+  </tr>
+  <tr>
+    <td>w:type</td>
+    <td>dxa | nil</td>
+    <td>Тип единиц измерения</td>
+  </tr>
+
+</table>
+
+<h3 id="tblGrid">Сетка таблицы (tblGrid)</h3>
+<p><code>table._tbl.tblGrid</code> — описание колонок таблицы.</p>
+
+<table class="content_table">
+  <thead>
+  <tr>
+    <td>Узел</td>
+    <td>За что отвечает</td>
+    <td>Атрибуты</td>
+    <td>Значение атрибутов</td>
+    <td>За что отвечает атрибут</td>
+  </tr>
+  </thead>
+
+  <tr>
+    <td>w:gridCol</td>
+    <td>Колонка таблицы</td>
+    <td>w:w</td>
+    <td>Число (twips)</td>
+    <td>Ширина колонки</td>
+  </tr>
+
+</table>
+
+<h3 id="tr">Строки таблицы (tr)</h3>
+<p><code>table._tbl.tr_lst</code> — строки таблицы.</p>
+
+<table class="content_table">
+  <thead>
+  <tr>
+    <td>Узел</td>
+    <td>За что отвечает</td>
+    <td>Атрибуты</td>
+    <td>Значение атрибутов</td>
+    <td>За что отвечает атрибут</td>
+  </tr>
+  </thead>
+
+  <tr>
+    <td rowspan="2">w:trHeight</td>
+    <td rowspan="2">Высота строки</td>
+    <td>w:val</td>
+    <td>Число</td>
+    <td>Высота строки</td>
+  </tr>
+  <tr>
+    <td>w:hRule</td>
+    <td>auto | exact | atLeast</td>
+    <td>Правило вычисления высоты</td>
+  </tr>
+
+  <tr>
+    <td>w:tblHeader</td>
+    <td>Повторять строку как заголовок</td>
+    <td>w:val</td>
+    <td>true | false</td>
+    <td>Повтор строки на страницах</td>
+  </tr>
+
+  <tr>
+    <td>w:cantSplit</td>
+    <td>Запрет разрыва строки</td>
+    <td>w:val</td>
+    <td>true | false</td>
+    <td>Запрет переноса строки</td>
+  </tr>
+
+</table>
+
+
+<h3 id="tc">Ячейки таблицы (tc)</h3>
+<p><code>row._tr.tc_lst</code> — ячейки строки.</p>
+
+<table class="content_table">
+  <thead>
+  <tr>
+    <td>Узел</td>
+    <td>За что отвечает</td>
+    <td>Атрибуты</td>
+    <td>Значение атрибутов</td>
+    <td>За что отвечает атрибут</td>
+  </tr>
+  </thead>
+
+  <tr>
+    <td rowspan="2">w:tcW</td>
+    <td rowspan="2">Ширина ячейки</td>
+    <td>w:w</td>
+    <td>Число</td>
+    <td>Ширина ячейки</td>
+  </tr>
+  <tr>
+    <td>w:type</td>
+    <td>dxa | pct | auto | nil</td>
+    <td>Тип единиц измерения</td>
+  </tr>
+
+  <tr>
+    <td>w:vAlign</td>
+    <td>Вертикальное выравнивание</td>
+    <td>w:val</td>
+    <td>top | center | bottom</td>
+    <td>Выравнивание содержимого</td>
+  </tr>
+
+  <tr>
+    <td>w:gridSpan</td>
+    <td>Объединение по колонкам</td>
+    <td>w:val</td>
+    <td>Число</td>
+    <td>Количество объединяемых колонок</td>
+  </tr>
+
+  <tr>
+    <td>w:vMerge</td>
+    <td>Объединение по строкам</td>
+    <td>w:val</td>
+    <td>restart | continue</td>
+    <td>Начало / продолжение объединения</td>
+  </tr>
+
+  <tr>
+    <td>w:shd</td>
+    <td>Заливка ячейки</td>
+    <td>w:fill</td>
+    <td>HEX</td>
+    <td>Цвет фона</td>
+  </tr>
+
+</table>

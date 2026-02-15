@@ -15,6 +15,7 @@ caption{
 	font-family: "for_captions";
 	font-size: 40px;
 }
+/* TODO: пофиксить баг с двойной границей при colspan и rowspan */
 table {
 	text-align: center;
 	border-spacing: 0;
